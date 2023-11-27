@@ -54,7 +54,7 @@ const CreatePage = () => {
         const newList = missions.concat({
             id:nextId,
             mission: mtxt,
-            missionDate: dateToString(mdate)
+            mission_date: dateToString(mdate)
         });
         setNextId(nextId+1);
         setMissions(newList);
