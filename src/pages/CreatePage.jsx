@@ -155,6 +155,7 @@ const CreatePage = () => {
                     'Content-Type': 'multipart/form-data',
                     'Authorization': ` Bearer ${ACCESS_TOKEN}`
                 },
+                withCredentials: true
             })
             .then(response => {
                 alert('챌린지 개설 완료!');
