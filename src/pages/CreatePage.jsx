@@ -124,8 +124,8 @@ const CreatePage = () => {
 
         const value = {
             "title": title,
-            "startDate": dateToString(startDate),
-            "endDate": dateToString(endDate),
+            "start_date": dateToString(startDate),
+            "end_date": dateToString(endDate),
             "category": category,
             "detail": explain,
             "missions": missions
