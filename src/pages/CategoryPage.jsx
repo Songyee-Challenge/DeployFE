@@ -102,10 +102,11 @@ const CategoryPage = () => {
     };
 
     const getRecruit = () => {
-        axios.get(`http://43.200.19.7:8080/api/v1/main/category?category=${state.state}`,  {
+        axios.get(`http://43.200.19.7:8080/api/v1/main/category?category=${state.state}`, {
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': ` Bearer ${ACCESS_TOKEN}`
+                'Authorization': ` Bearer ${ACCESS_TOKEN}`,
+                withCredentials: true,
             }
         })
         .then(response => {

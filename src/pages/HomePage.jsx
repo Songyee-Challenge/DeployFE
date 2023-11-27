@@ -114,6 +114,7 @@ const HomePage = () => {
         headers: {
           "Content-Type": "application/json",
           Authorization: ` Bearer ${ACCESS_TOKEN}`,
+          withCredentials: true,
         },
       })
       .then((response) => {
@@ -127,6 +128,7 @@ const HomePage = () => {
         headers: {
           "Content-Type": "application/json",
           Authorization: ` Bearer ${ACCESS_TOKEN}`,
+          withCredentials: true,
         },
       })
       .then((response) => {
@@ -175,7 +177,7 @@ const HomePage = () => {
               <Title>{challenge.challenge_title}</Title>
               <Date><span style={{fontWeight:"500"}}>기간</span>
               <span><span style={{color:"#42AF53"}}>{challenge.startDate.substring(0,4)}.{challenge.startDate.substring(4,6)}.{challenge.startDate.substring(6,8)}</span> ~ {challenge.endDate.substring(0,4)}.{challenge.endDate.substring(4,6)}.{challenge.endDate.substring(6,8)}</span></Date>
-              <Explain>{challenge.explain}</Explain>
+              <Explain>{challenge.detail}</Explain>
             </div>
           ))}
       </CardContainer>
@@ -210,7 +212,7 @@ const HomePage = () => {
               <Title>{challenge.challenge_title}</Title>
               <Date><span style={{fontWeight:"500"}}>기간</span>
               <span>{challenge.startDate.substring(0,4)}.{challenge.startDate.substring(4,6)}.{challenge.startDate.substring(6,8)} ~ {challenge.endDate.substring(0,4)}.{challenge.endDate.substring(4,6)}.{challenge.endDate.substring(6,8)}</span></Date>
-              <Explain>{challenge.explain}</Explain>
+              <Explain>{challenge.detail}</Explain>
             </div>
           ))}
       </CardContainer>
