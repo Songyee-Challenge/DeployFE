@@ -36,6 +36,8 @@ const CreatePage = () => {
 
     let ACCESS_TOKEN = localStorage.getItem("accessToken");
 
+    axios.defaults.withCredentials = true;
+
     const handleTitle = (e) => {
         setTitle(e.target.value);
         if (e.target.value.length > 30) {
@@ -152,7 +154,7 @@ const CreatePage = () => {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     'Authorization': ` Bearer ${ACCESS_TOKEN}`
-                }
+                },
             })
             .then(response => {
                 alert('챌린지 개설 완료!');
