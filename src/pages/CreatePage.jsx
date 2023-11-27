@@ -153,9 +153,9 @@ const CreatePage = () => {
             axios.post('http://43.200.19.7:8080/api/v1/challenge/post', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
-                    'Authorization': ` Bearer ${ACCESS_TOKEN}`
+                    'Authorization': ` Bearer ${ACCESS_TOKEN}`,
+                    withCredentials: true,
                 },
-                withCredentials: true
             })
             .then(response => {
                 alert('챌린지 개설 완료!');
