@@ -266,7 +266,7 @@ const MyMission = () => {
           <MissionBox key={missionList.challenge_id}>
             <ImgBox onClick={handleImageClick}>
               <MissionImg
-                src={`http://localhost:8080/api/v1/picture?pictureName=${missionList.picture}`}
+                src={`http://43.200.19.7:8080/api/v1/picture?pictureName=${missionList.picture}`}
               ></MissionImg>
             </ImgBox>
             <ContentBox>
