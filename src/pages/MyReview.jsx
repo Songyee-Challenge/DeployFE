@@ -149,7 +149,7 @@ const MyReview = () => {
 
   const getReview = () => {
     axios
-      .get("/api/v1/mypage/review", {
+      .get("http://43.200.19.7:8080/api/v1/mypage/review", {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${ACCESS_TOKEN}`,
