@@ -80,6 +80,7 @@ const Contents = styled.textarea`
   width: 90vw;
   padding: 20px;
   height: 250px;
+  line-height: 1.2rem;
 `;
 
 const Count = styled.div`
