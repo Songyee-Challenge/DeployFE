@@ -171,6 +171,8 @@ const MyMission = () => {
         headers: {
           "Content-Type": "application/json",
           Authorization: ` Bearer ${ACCESS_TOKEN}`,
+          withCredentials: true
+
         },
       })
       .then((response) => {
