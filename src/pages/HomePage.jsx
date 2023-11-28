@@ -9,7 +9,7 @@ import axios from "axios";
 const Wrapper = styled.div``;
 const CategoryLine = styled.div`
   display: flex;
-  margin: 30px 60px;
+  margin: 40px 60px 20px;
 `;
 const CategoryTxt = styled.div`
   font-family: "Dongle-regular";
@@ -17,12 +17,13 @@ const CategoryTxt = styled.div`
   line-height: 70px;
   margin-right: 20px;
   font-weight: 500;
+  white-space: nowrap;
 `;
 const Line = styled.div`
   background: #000;
   height: 4px;
   border: 0;
-  width: 60vw;
+  width: 69vw;
   margin-top: 33px;
 `;
 const MoreBtn = styled.div`
@@ -30,8 +31,10 @@ const MoreBtn = styled.div`
   font-weight: 700;
   cursor: pointer;
   font-size: 2.5rem;
+  white-space: nowrap;
   line-height: 70px;
   margin-left: 20px;
+
 `;
 const CardContainer = styled.div`
   display: grid;
@@ -39,7 +42,7 @@ const CardContainer = styled.div`
   justify-content: space-between;
   width: 70vw;
   margin-left: 70px;
-  margin-bottom: 50px;
+  margin-bottom: -20px;
 `;
 const ImgBox = styled.div`
   border: 4px solid #ffe27c;
@@ -114,7 +117,6 @@ const HomePage = () => {
         headers: {
           "Content-Type": "application/json",
           Authorization: ` Bearer ${ACCESS_TOKEN}`,
-          withCredentials: true,
         },
       })
       .then((response) => {
@@ -128,7 +130,6 @@ const HomePage = () => {
         headers: {
           "Content-Type": "application/json",
           Authorization: ` Bearer ${ACCESS_TOKEN}`,
-          withCredentials: true,
         },
       })
       .then((response) => {
@@ -155,7 +156,7 @@ const HomePage = () => {
         <Line />
         <MoreBtn
           onClick={() => {
-            navigate("/songchallenge");
+            navigate("/imminent");
           }}
         >
           MORE &nbsp;&nbsp;{">"}
@@ -193,14 +194,21 @@ const HomePage = () => {
         />
       </BtnContainer>
       <CategoryLine>
-        <CategoryTxt>인기 챌린지</CategoryTxt>
-        <Line style={{ width: "65vw" }} />
+        <CategoryTxt>실시간 인기 챌린지</CategoryTxt>
+        <Line style={{ width: "70vw" }} />
+        <MoreBtn
+          onClick={() => {
+            navigate("/hot");
+          }}
+        >
+          MORE &nbsp;&nbsp;{">"}
+        </MoreBtn>
       </CategoryLine>
       <CardContainer>
         {hotList &&
           hotList.map((challenge) => (
             <div>
-              <ImgBox>
+              <ImgBox key={challenge.challenge_id} onClick={handleImageClick} id={challenge.challenge_id}>
                 <MissionImg
                   referrerPolicy="no-referrer"
                   src={`http://43.200.19.7:8080/api/v1/picture?pictureName=${challenge.picture}`}
@@ -212,7 +220,7 @@ const HomePage = () => {
               <Title>{challenge.challenge_title}</Title>
               <Date><span style={{fontWeight:"500"}}>기간</span>
               <span>{challenge.startDate.substring(0,4)}.{challenge.startDate.substring(4,6)}.{challenge.startDate.substring(6,8)} ~ {challenge.endDate.substring(0,4)}.{challenge.endDate.substring(4,6)}.{challenge.endDate.substring(6,8)}</span></Date>
-              <Explain>{challenge.detail}</Explain>
+              <Date><span style={{fontWeight:"500"}}>신칭인원</span><span style={{color:"#42AF53"}}>{challenge.participantsNumber} 명</span></Date>
             </div>
           ))}
       </CardContainer>

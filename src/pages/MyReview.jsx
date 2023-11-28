@@ -6,7 +6,7 @@ import remove from "../images/remove.png";
 import axios from "axios";
 
 const Wrapper = styled.div`
-  padding-top: 37px;
+  padding-top: 33px;
   font-family: "Pretendard";
 `;
 
@@ -149,7 +149,7 @@ const MyReview = () => {
 
   const getReview = () => {
     axios
-      .get("http://43.200.19.7:8080/api/v1/mypage/review", {
+      .get("/api/v1/mypage/review", {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${ACCESS_TOKEN}`,
@@ -234,12 +234,10 @@ const MyReview = () => {
                     src={remove}
                     onClick={() => handleDelete(review.review_id)}
                   ></LikeBtn>
-
-                  <Count>{review.likeCount}</Count>
                 </LikeDiv>
               </FlexBox>
               <Contents>
-                <TxtDiv>{review.content};</TxtDiv>
+                <TxtDiv>{review.content}</TxtDiv>
               </Contents>
             </Container>
           ))}

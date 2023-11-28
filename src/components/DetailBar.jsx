@@ -11,9 +11,9 @@ import { useLocation } from 'react-router-dom';
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-left: 2vw;
   white-space: nowrap;
   align-items: center;
+  width: 50%;
 `;
 
 const CustomButton = styled.button`
@@ -23,11 +23,11 @@ const CustomButton = styled.button`
   position: relative;
   padding: 0;
   font-family:'Pretendard';
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   font-weight: bold;
   color: #000;
-  margin-right: 2vw;
-  margin-top:10px;
+  margin-left: 25px;
+  margin-top: 18px;
   margin-bottom: 20px;
   flex: 0 0 auto;
 
@@ -36,9 +36,9 @@ const CustomButton = styled.button`
       content: '';
       display: block;
       position: absolute;
-      bottom: -20px;
+      bottom: -16px;
       left: 0;
-      width: 100%;
+      width: 110%;
       height: 3px;
       background-color: #000;
     }
@@ -50,14 +50,15 @@ const CustomButton = styled.button`
 `;
 
 const LineWrapper = styled.div`
-  width:95%;
+  margin-left: 25px;
+  width: 610px;
 `;
 
 const SeparateLine = styled.hr`
     border: none;
     border-top: solid 1px #B3B3B3;
     margin-left:0px;
-    margin-top:0px;
+    margin-top: -5px;
 `;
 
 const DetailBar = ({context}) => {
@@ -102,28 +103,28 @@ const DetailBar = ({context}) => {
                 onClick={() => handleComponentClick('A')}
                 disabled={activeComponent === 'A'}
             >
-                🍄챌린지
+                🍄 챌린지
             </CustomButton>
             <CustomButton
                 className={`detail_type_button ${activeComponent === 'B' ? 'active' : ''}`}
                 onClick={() => handleComponentClick('B')}
                 disabled={activeComponent === 'B'}
             >
-                🍄챌린지달력
+                🍄 챌린지달력
             </CustomButton>
             <CustomButton
                 className={`detail_type_button ${activeComponent === 'C' ? 'active' : ''}`}
                 onClick={() => handleComponentClick('C')}
                 disabled={activeComponent === 'C'}
             >
-                🍄미션보기
+                🍄 미션보기
             </CustomButton>
             <CustomButton
                 className={`detail_type_button ${activeComponent === 'D' ? 'active' : ''}`}
                 onClick={() => handleComponentClick('D')}
                 disabled={activeComponent === 'D'}
             >
-                🍄챌린지가이드
+                🍄 챌린지가이드
             </CustomButton>
             </div>
             </ButtonContainer>

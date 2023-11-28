@@ -5,9 +5,9 @@ import axios from 'axios';
 import Button from '../components/Button';
 
 const RecruitBox = styled.div`
-    margin-left:3vw;
+    margin-left: 4vw;
     margin-right: 3vw;
-    margin-top:5vw;
+    padding-top: 1.2vw;
     font-family:'Pretendard';
     margin-bottom: 200px;
 `;
@@ -72,13 +72,25 @@ const BtnContainer = styled.div`
   top: 75%;
   right: -20px;
 `;
+
+const TitleBox = styled.div`
+    margin-right: 2vw;
+    margin-bottom: 23px;
+    display: flex;
+    align-items: center;
+`;
+
 const Title = styled.div`
     font-family: 'Pretendard';
     font-weight:bold;
-    font-size: 1.7rem;
+    font-size: 1.6rem;
+`
+
+const ChallengeNumber = styled.div`
+    margin-left: auto;
     margin-right: 2vw;
-    margin-top:30px;
-    margin-bottom: 30px;
+    font-family: 'Pretendard';
+    font-size: 1.1rem;
 `
 const SeparateLine = styled.hr`
     border: none;
@@ -86,6 +98,11 @@ const SeparateLine = styled.hr`
     margin-right: 3vw;
     margin-left:0px;
     margin-top:-10px;
+`;
+
+const Body = styled.div`
+    margin-top: 4vw;
+    margin-left: 0.5vw;
 `;
 
 const TestCategoryPage = () => {
@@ -122,27 +139,33 @@ const TestCategoryPage = () => {
 
     return (
         <RecruitBox>
-            <Title>자격증/시험 챌린지</Title>
+           <TitleBox>
+                <Title>자격증/시험 챌린지</Title>
+                <ChallengeNumber>
+                    총 {total}개의 챌린지
+                </ChallengeNumber>
+            </TitleBox>
             <SeparateLine/>
-            <h3 style={{marginBottom:'50px', float:'right', marginRight:'3vw'}}>총 {total}개의 챌린지</h3>
-            <RecruitList>
-            {recruit && recruit.map(challenge=>(
-                <div>
-                <RecruitImageContainer onClick={handleImageClick}>    
-                    <RecruitImage id={challenge.challenge_id} src={`http://43.200.19.7:8080/api/v1/picture?pictureName=${challenge.picture}`}/>
-                </RecruitImageContainer>
-                <RecruitInfo>
-                    <RecruitTitle>{challenge.challenge_title}</RecruitTitle>
-                    <RecruitDetails>
-                        <span>기간</span>
-                        <span style={{fontWeight:'bold'}}>{challenge.startDate.substring(0, 4)}.{challenge.startDate.substring(4, 6)}.{challenge.startDate.substring(6, 8)}
-                        &nbsp;~&nbsp;
-                        {challenge.endDate.substring(0, 4)}.{challenge.endDate.substring(4, 6)}.{challenge.endDate.substring(6, 8)}</span></RecruitDetails>
-                    <RecruitExplain>{challenge.explain}</RecruitExplain>
-                </RecruitInfo>
-                </div>
-        ))}
-        </RecruitList>
+            <Body>
+                <RecruitList>
+                    {recruit && recruit.map(challenge=>(
+                        <div>
+                        <RecruitImageContainer onClick={handleImageClick}>    
+                            <RecruitImage id={challenge.challenge_id} src={`http://43.200.19.7:8080/api/v1/picture?pictureName=${challenge.picture}`}/>
+                        </RecruitImageContainer>
+                        <RecruitInfo>
+                            <RecruitTitle>{challenge.challenge_title}</RecruitTitle>
+                            <RecruitDetails>
+                                <span>기간</span>
+                                <span style={{fontWeight:'bold'}}>{challenge.startDate.substring(0, 4)}.{challenge.startDate.substring(4, 6)}.{challenge.startDate.substring(6, 8)}
+                                &nbsp;~&nbsp;
+                                {challenge.endDate.substring(0, 4)}.{challenge.endDate.substring(4, 6)}.{challenge.endDate.substring(6, 8)}</span></RecruitDetails>
+                            <RecruitExplain>{challenge.explain}</RecruitExplain>
+                        </RecruitInfo>
+                        </div>
+                    ))}
+                </RecruitList>
+            </Body>
         <BtnContainer>
         <Button
           fontSize="2.3rem"

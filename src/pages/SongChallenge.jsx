@@ -7,7 +7,7 @@ import OngoingDetail from './OngoingDetailPage';
 import CompletedDetail from './CompletedDetailPage';
 
 const ChallengeBox = styled.div`
-    margin-left:3vw;
+    margin-left:2vw;
 `;
 
 const SongChallenge = () => {

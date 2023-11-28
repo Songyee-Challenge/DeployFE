@@ -10,9 +10,10 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   white-space: nowrap;
-  margin-top: 40px;
+  margin-top: 10px;
   margin-left: 50px;
   font-family: 'Pretendard';
+  color: #9E9E9E;
 `;
 
 const ContentWrapper = styled.div`
@@ -20,10 +21,12 @@ const ContentWrapper = styled.div`
 `;
 
 const ChDiv = styled.div`
+  object-fit: cover;
   border: 2px solid #ffd700;
   border-radius: 30px;
   overflow: hidden;
   width: 382px;
+  min-width: 382px;
   height: 466px;
   margin-left: -100px;
   margin-right: 80px;
@@ -42,7 +45,19 @@ const TextWrapper = styled.div`
   flex: 1;
   align-items: flex-start;
   margin-left:50px;
-  color: #747474;
+  margin-top: 30px;
+`;
+
+const InfoHead = styled.div`
+  display: flex;
+  width: 100%;
+  margin-bottom: 30px;
+`
+
+const ChallengeTitle = styled.div`
+  font-size: 36px;
+  font-weight: bold;
+  margin-top: 30px;
 `;
 
 const ChallengeInfo = styled.div`
@@ -64,17 +79,46 @@ const InfoLabel = styled.div`
 //   margin-right: auto; /* 라벨과 값 간 간격 조절 */
 `;
 
+const ChallengeBtn = styled.button`
+  font-family: 'Pretendard';
+  border: 2px solid #42af53;
+  border-radius: 10px;
+  background-color: #42af53;
+  color: white;
+  margin-top: 25px;
+  margin-left: auto;
+  font-weight: bold;
+  width: 160px;
+  height: 60px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #367542;
+  }
+`;
+
 const Line = styled.hr`
   width: 100%;
   margin-left: -10px;
   margin-right: 60px;
 `;
+
 const Explain = styled.p`
-  font-size: 24px;
+  font-size: 22px;
   width: 700px;
   word-break:break-all;
   white-space: pre-line;
+  margin-bottom: 30px;
 `
+
+const Sort = styled.div`
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: -20px;
+`;
 
 const CompletedDetail = () => {
   const {state} = useLocation();
@@ -112,9 +156,12 @@ const CompletedDetail = () => {
             <ContentWrapper>
             <ChDiv><ChallengeImg src={`http://43.200.19.7:8080/api/v1/picture?pictureName=${challenge.picture}`} /></ChDiv>
             <TextWrapper>
-            <h2 style={{ fontSize: '36px', fontWeight: 'bold' }}>{challenge.challenge_title}</h2>
+              <Sort>종료된 챌린지</Sort>
+              <InfoHead>
+                <ChallengeTitle>{challenge.challenge_title}</ChallengeTitle>
+              </InfoHead>
             <Explain>
-            {challenge.explain}
+            {challenge.detail}
             </Explain>
             <Line />
             <ChallengeInfo>
@@ -136,7 +183,7 @@ const CompletedDetail = () => {
                 </InfoItem>
                 <InfoItem>
                 <InfoLabel>진행률&nbsp;&nbsp;&nbsp;&nbsp;</InfoLabel>
-                <div style={{marginLeft:'-30px', width: '100%'}}><ProgressBar percentage={challenge.progressPercent}/></div>
+                <div style={{marginLeft:'-10px', width: '100%'}}><ProgressBar percentage={challenge.progressPercent}/></div>
                 </InfoItem>
             </ChallengeInfo>
             <Line />

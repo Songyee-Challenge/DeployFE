@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Wrapper = styled.div`
-  padding-top: 15px;
+  padding-top: 11px;
   font-family: "Pretendard";
 `;
 
@@ -24,9 +24,9 @@ const Box = styled.div`
 `;
 
 const MissionBox = styled.div`
-  width: 75vw;
+  width: 72vw;
   display: flex;
-  padding: 80px 30px;
+  padding: 50px 30px;
   border-bottom: 1px solid grey;
 `;
 
@@ -37,12 +37,14 @@ const ImgBox = styled.div`
   height: 240px;
   overflow: hidden;
   cursor: pointer;
+  min-width: 180px;
 `;
 
 const MissionImg = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  margin-top: 0px;
 `;
 
 const ContentBox = styled.div`
@@ -51,8 +53,9 @@ const ContentBox = styled.div`
 
 const HeadDiv = styled.div`
   display: flex;
-  gap: 5vw;
-  margin-bottom: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0px;
 `;
 
 const TitleBox = styled.div`
@@ -62,6 +65,7 @@ const TitleBox = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   display: block;
+  margin-right: 6vw;
 `;
 
 const Sub = styled.p`
@@ -78,23 +82,26 @@ const Title = styled.p`
 const MissionNum = styled.p`
   font-size: 1.2rem;
   font-weight: 900;
-  margin-top: 15px;
+  margin-right: 5vw;
 `;
 
-const Number = styled.span`
-  padding: 10px;
+const Num = styled.span`
+  padding-left: 20px;
+  padding-right: 5px;
   font-size: 1.8rem;
   font-family: "Abril+Fatface";
-`;
+  width: 10px;
+  text-align: center;
+`
 
 const Btn = styled.button`
-  width: 230px;
-  height: 45px;
+  width: 180px;
+  height: 40px;
   background-color: white;
   font-size: 18px;
   font-weight: 900;
   border: 2px solid black;
-  margin-top: 20px;
+  margin-top: 0px;
   cursor: pointer;
   white-space: nowrap;
 `;
@@ -102,20 +109,18 @@ const Btn = styled.button`
 const CheckDiv = styled.div`
   display: flex;
   font-size: 1.1rem;
-`;
+  margin-bottom: -30px;
 
-const Date = styled.p`
-  white-space: nowrap;
-  margin-top: 11px;
-  font-size: 1rem;
-  font-weight: 500;
-  display: inline-block;
-  width: 100px;
+  ${({ completed }) => completed && `
+  color: #C1C1C1;
+  text-decoration: line-through;
+  `}
 `;
 
 const CheckBox = styled.input`
   margin-top: 20px;
   margin-right: 10px;
+  border-radius: 5px;
   cursor: pointer;
   appearance: none;
   width: 1.5rem;
@@ -129,6 +134,20 @@ const CheckBox = styled.input`
     background-repeat: no-repeat;
     background-color: limegreen;
   }
+`;
+
+const Date = styled.p`
+  white-space: nowrap;
+  margin-top: 11px;
+  font-size: 1rem;
+  font-weight: 600;
+  display: inline-block;
+  width: 100px;
+
+  ${({ completed }) => completed && `
+    color: #C1C1C1;
+    text-decoration: line-through;
+  `}
 `;
 
 const Label = styled.label`
@@ -212,7 +231,7 @@ const MyMission = () => {
   }, []);
 
   const handleImageClick = (e) => {
-    navigate(`/songchallenge/completeddetail`, {
+    navigate(`http://43.200.19.7:8080/songchallenge/completeddetail`, {
       state: {
         state: e.target.id,
         start:
@@ -247,32 +266,30 @@ const MyMission = () => {
           <MissionBox key={missionList.challenge_id}>
             <ImgBox onClick={handleImageClick}>
               <MissionImg
-                src={`http://43.200.19.7:8080/api/v1/picture?pictureName=${missionList.picture}`}
+                src={`http://localhost:8080/api/v1/picture?pictureName=${missionList.picture}`}
               ></MissionImg>
             </ImgBox>
             <ContentBox>
               <HeadDiv>
                 <TitleBox
-                  onClick={() => {
-                    navigate("/");
-                  }}
-                >
-                  <Sub>{missionList.explain}</Sub>
+                  onClick={handleClickBtn} id={missionList.challenge_id}>
+                  <Sub>{missionList.period}</Sub>
                   <Title>{missionList.challenge_title}</Title>
                 </TitleBox>
                 <MissionNum>
-                  내가 참여한 미션
-                  <Number>
-                    {missionList.completedCount}/{missionList.missionCount}
-                  </Number>
-                  개
+                    내가 성공한 미션
+                    <Num>
+                      {missionList.completedCount}
+                      /{missionList.missionCount}
+                    </Num>
+                    개
                 </MissionNum>
                 <Btn onClick={handleClickBtn} id={missionList.challenge_id}>
                   참여한 챌린지 바로가기
                 </Btn>
               </HeadDiv>
               {missionList.missions.map((mission) => (
-                <CheckDiv key={mission.missionDate}>
+                <CheckDiv key={mission.mission_id} completed={mission.complete}>
                   <CheckBox
                     type="checkbox"
                     id={`mycheck-${mission.mission_id}`}
@@ -283,7 +300,7 @@ const MyMission = () => {
                   />
                   <Date>
                     {" "}
-                    <Date>
+                    <Date completed={mission.complete}>
                       {mission.missionDate.substring(0, 4)}.
                       {mission.missionDate.substring(4, 6)}.
                       {mission.missionDate.substring(6, 8)}

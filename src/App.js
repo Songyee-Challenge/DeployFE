@@ -24,6 +24,8 @@ import Diary from "./pages/Diary";
 import PostRelay from "./pages/PostRelay";
 import CategoryPage from "./pages/CategoryPage";
 import TestCategoryPage from "./pages/TestCategoryPage";
+import ImminentPage from "./pages/ImminentPage";
+import HotPage from "./pages/HotPage";
 
 function App() {
   const location = useLocation();
@@ -44,6 +46,8 @@ function App() {
               <Route path="/home" element={<HomePage />} />
               <Route path="/agree" element={<AgreePage />} />
               <Route path="/create" element={<CreatePage />} />
+              <Route path="/imminent" element={<ImminentPage/>}/>
+              <Route path="/hot" element={<HotPage/>}/>
               <Route path="/songchallenge" element={<SongChallenge />}>
                 <Route
                   path="/songchallenge/recruitdetail"

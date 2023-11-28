@@ -36,8 +36,6 @@ const CreatePage = () => {
 
     let ACCESS_TOKEN = localStorage.getItem("accessToken");
 
-    axios.defaults.withCredentials = true;
-
     const handleTitle = (e) => {
         setTitle(e.target.value);
         if (e.target.value.length > 30) {
@@ -70,7 +68,7 @@ const CreatePage = () => {
         <ListBox key={mission.id}>
             <Mli>
                 <MissionNum>미션 {index+1}</MissionNum>
-                <MissionDate> {mission.missionDate}</MissionDate>
+                <MissionDate>[{mission.missionDate.substring(0,4)}.{mission.missionDate.substring(4,6)}.{mission.missionDate.substring(6,8)}]</MissionDate>
                 {mission.mission}
                 <DelBtn onClick={() => handleDelete(mission.id)}>삭제</DelBtn>
             </Mli>
@@ -153,9 +151,8 @@ const CreatePage = () => {
             axios.post('http://43.200.19.7:8080/api/v1/challenge/post', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
-                    'Authorization': ` Bearer ${ACCESS_TOKEN}`,
-                    withCredentials: true,
-                },
+                    'Authorization': ` Bearer ${ACCESS_TOKEN}`
+                }
             })
             .then(response => {
                 alert('챌린지 개설 완료!');
@@ -218,7 +215,7 @@ const CreatePage = () => {
                 <MInput 
                     value={mtxt}
                     onChange={handleMtxt}
-                    placeholder='미션 추가하기'
+                    placeholder='미션 추가하기 (날짜 순이 아니어도 좋아요)'
                 />
                 <MDatePicker
                     selectedDate={mdate}

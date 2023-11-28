@@ -21,11 +21,12 @@ const Wrapper = styled.div`
 `;
 
 const MyBox = styled.div`
-  margin-left: 3vw;
+  margin-left: 17vw;
+  margin-top: -20px;
 `;
 
 const ForestBox = styled.div`
-  margin-top: 5rem;
+  margin-top: 1.5rem;
   background-color: #ffe27c;
   border-radius: 10px;
   width: 75vw;
@@ -134,7 +135,7 @@ const ChDiv = styled.div`
   height: 173px;
   margin-left: 30px;
   margin-right: 80px;
-  margin-top: 20px;
+  margin-top: 10px;
 `;
 
 const ChallengeImg = styled.img`
@@ -151,10 +152,15 @@ const TextWrapper = styled.div`
   flex: 1;
   align-items: flex-start;
   margin-left: -50px;
-  margin-top: 20px;
+  margin-top: 10px;
   white-space: nowrap;
   color: black;
 `;
+
+const NoChallenge = styled.div`
+  color: gray;
+  margin: -10px 50px;
+`
 
 const ChallengeInfo = styled.div`
   font-size: 16px;
@@ -357,46 +363,54 @@ const MyChallenge = () => {
                   </More>
                 </Type>
                 <Box>
-                  {Recruit.map((recruit) => (
-                    <ChallengeBox key={recruit.challenge_id}>
-                      <ChDiv>
-                        <ChallengeImg
-                          src={`http://43.200.19.7:8080/api/v1/picture?pictureName=${recruit.picture}`}
-                        />
-                      </ChDiv>
-                      <TextWrapper>
-                        <TitleDiv>
-                          <Title>{recruit.challenge_title}</Title>
-                        </TitleDiv>
-                        <ChallengeInfo>
-                          <InfoItem>
-                            <InfoLabel>
-                              기간: {recruit.startDate.substring(0, 4)}.
-                              {recruit.startDate.substring(4, 6)}.
-                              {recruit.startDate.substring(6, 8)} ~{" "}
-                              {recruit.endDate.substring(0, 4)}.
-                              {recruit.endDate.substring(4, 6)}.
-                              {recruit.endDate.substring(6, 8)}
-                            </InfoLabel>
-                          </InfoItem>
-                          <InfoItem>
-                            <InfoLabel>진행률: </InfoLabel>
-                            <InfoLabel>
-                              <ProgressBar
-                                percentage={recruit.progressPercent}
-                              />
-                            </InfoLabel>
-                          </InfoItem>
-                          <ShowMissionbtn
-                            onClick={handleClickBtn}
-                            id={recruit.challenge_id}
-                          >
-                            챌린지 보러가기
-                          </ShowMissionbtn>
-                        </ChallengeInfo>
-                      </TextWrapper>
-                    </ChallengeBox>
-                  ))}
+                  {((RecruitCount && RecruitCount.myChallengeCount) || 0) === 0 ? (
+                      <ChallengeBox>
+                        <TextWrapper>
+                          <NoChallenge style={{ color: 'grey' }}>
+                            예정된 챌린지가 없습니다.
+                          </NoChallenge>
+                        </TextWrapper>
+                      </ChallengeBox>
+                    ) : (Recruit.map((recruit) => (
+                      <ChallengeBox key={recruit.challenge_id}>
+                        <ChDiv>
+                          <ChallengeImg
+                            src={`http://43.200.19.7:8080/api/v1/picture?pictureName=${recruit.picture}`}
+                          />
+                        </ChDiv>
+                        <TextWrapper>
+                          <TitleDiv>
+                            <Title>{recruit.challenge_title}</Title>
+                          </TitleDiv>
+                          <ChallengeInfo>
+                            <InfoItem>
+                              <InfoLabel>
+                                기간: {recruit.startDate.substring(0, 4)}.
+                                {recruit.startDate.substring(4, 6)}.
+                                {recruit.startDate.substring(6, 8)} ~{" "}
+                                {recruit.endDate.substring(0, 4)}.
+                                {recruit.endDate.substring(4, 6)}.
+                                {recruit.endDate.substring(6, 8)}
+                              </InfoLabel>
+                            </InfoItem>
+                            <InfoItem>
+                              <InfoLabel>진행률: </InfoLabel>
+                              <InfoLabel>
+                                <ProgressBar
+                                  percentage={recruit.progressPercent}
+                                />
+                              </InfoLabel>
+                            </InfoItem>
+                            <ShowMissionbtn
+                              onClick={handleClickBtn}
+                              id={recruit.challenge_id}
+                            >
+                              챌린지 보러가기
+                            </ShowMissionbtn>
+                          </ChallengeInfo>
+                        </TextWrapper>
+                      </ChallengeBox>
+                  )))}
                 </Box>
                 <Type>
                   <p>진행 중인 챌린지</p>
@@ -413,7 +427,15 @@ const MyChallenge = () => {
                   </More>
                 </Type>
                 <Box>
-                  {Inprocess.map((inprocess) => (
+                  {((InprocessCount && InprocessCount.myChallengeCount) || 0) === 0 ? (
+                    <ChallengeBox>
+                      <TextWrapper>
+                        <NoChallenge style={{ color: 'grey' }}>
+                          진행 중인 챌린지가 없습니다.
+                        </NoChallenge>
+                      </TextWrapper>
+                    </ChallengeBox>
+                  ) : (Inprocess.map((inprocess) => (
                     <ChallengeBox key={inprocess.challenge_id}>
                       <ChDiv>
                         <ChallengeImg
@@ -452,7 +474,7 @@ const MyChallenge = () => {
                         </ChallengeInfo>
                       </TextWrapper>
                     </ChallengeBox>
-                  ))}
+                  )))}
                 </Box>
                 <Type>
                   <p>종료된 챌린지</p>
@@ -469,7 +491,15 @@ const MyChallenge = () => {
                   </More>
                 </Type>
                 <Box>
-                  {Finished.map((finished) => (
+                  {((FinishedCount && FinishedCount.myChallengeCount) || 0) === 0 ? (
+                    <ChallengeBox>
+                      <TextWrapper>
+                        <NoChallenge style={{ color: 'grey' }}>
+                          종료된 챌린지가 없습니다.
+                        </NoChallenge>
+                      </TextWrapper>
+                    </ChallengeBox>
+                  ) : (Finished.map((finished) => (
                     <ChallengeBox key={finished.challenge_id}>
                       <ChDiv>
                         <ChallengeImg
@@ -508,7 +538,7 @@ const MyChallenge = () => {
                         </ChallengeInfo>
                       </TextWrapper>
                     </ChallengeBox>
-                  ))}
+                  )))}
                 </Box>
                 <Outlet />
               </>

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const MenuBoxContainer = styled.div`
     background: rgba(66, 175, 83, 0.90);
-    height: 300px;
+    height: 240px;
     display: flex;
     align-items: center;
 `
@@ -15,11 +15,13 @@ const Box = styled.div`
     padding: 0 200px;
 `
 const Menu = styled.div`
+    white-space: nowrap;
     border-radius: 50%;
     background-color: #FFE27C;
     color: black;
     width: 150px;
     height: 150px;
+    min-width: 110px;
     font-family: 'Dongle-regular';
     font-size: 2.7rem;
     line-height: 40px;

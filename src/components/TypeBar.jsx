@@ -6,7 +6,7 @@ import CompletedChallenge from './CompletedChallenge';
 import searchicon from '../images/search.png';
 import filter from '../images/filter.png';
 import axios from 'axios';
-
+ 
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -22,12 +22,13 @@ const CustomButton = styled.button`
   position: relative;
   padding: 0;
   font-family:'Pretendard';
-  font-size: 1.6rem;
+  font-size: 25px;
   font-weight: bold;
   color: #000;
   margin-right: 2vw;
-  margin-top:30px;
+  margin-top: 15px;
   flex: 0 0 auto;
+  
 
   &.active {
     &:after {
@@ -56,25 +57,25 @@ const SearchContainer = styled.div`
 
 const SearchInput = styled.input`
   border: 1px solid #ccc;
-  width: 15vw;
+  width: 20vw;
   height: 25px;
   padding: 5px;
-  margin-top:30px;
+  margin-top: 18px;
 `;
 
 const SearchIcon = styled.img`
   width: 25px;
   cursor: pointer;
   margin-left: 10px;
-  margin-top: 25px;
-  margin-right:30px;
+  margin-top: 18px;
+  margin-right: 30px;
 `;
 
 const FilterIcon = styled.img`
     width: 25px;
     cursor: pointer;
     margin-left: 10px;
-    margin-top: 25px;
+    margin-top: 18px;
     margin-right:5vw;
 `;
 

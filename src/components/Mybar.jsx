@@ -4,10 +4,13 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 const Wrapper = styled.div`
   font-family: "Pretendard";
+  margin-top: -20px;
+  margin-left: 1vw;
+  position: fixed;
 `;
 
 const BarTxt = styled.p`
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 900;
   margin-bottom: 15px;
   cursor: pointer;
@@ -16,7 +19,9 @@ const BarTxt = styled.p`
 const BarBox = styled.div`
   width: 180px;
   border-top: 5px solid black;
+  margin-top: -5px;
 `;
+
 const MenuTxt = styled.p`
   font-weight: 900;
   font-size: 1.4rem;

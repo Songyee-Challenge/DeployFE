@@ -3,13 +3,14 @@ import styled from 'styled-components';
 import DetailBar from '../components/DetailBar';
 
 const Wrapper = styled.div`
-    margin-top:50px;
+    margin-top: 139.5px;
+    margin-left: 27.5px;
 `;
 
 const Title = styled.p`
     font-family:'Pretendard';
     font-weight:bold;
-    font-size: 1.7rem;
+    font-size: 25px;
 `;
 
 const SeparateLine = styled.hr`
@@ -17,16 +18,13 @@ const SeparateLine = styled.hr`
     border-top: 3px solid #000;
     width: 95%;
     margin-left:0px;
-    margin-top:-10px;
+    margin-top:-14px;
 `;
+
 
 const OngoingDetailPage = () => {
     return (
-        <Wrapper>
-            <Title>진행 중인 챌린지</Title>
-            <SeparateLine/>
-            <DetailBar context="ongoing"/>            
-        </Wrapper>
+        <DetailBar context="ongoing"/>                
     );
 };
 

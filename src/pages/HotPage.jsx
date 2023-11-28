@@ -66,6 +66,8 @@ const RecruitExplain = styled.div`
     display: -webkit-box;
     -webkit-line-clamp: 2; // 원하는 라인수
     -webkit-box-orient: vertical;
+    display: flex;
+    justify-content: space-between;
 `
 const BtnContainer = styled.div`
   position: fixed;
@@ -105,7 +107,7 @@ const Body = styled.div`
     margin-left: 0.5vw;
 `;
 
-const CategoryPage = () => {
+const HotPage = () => {
     const navigate = useNavigate();
     const [recruit, setRecruit] = useState([]);
     const [total, setTotal] = useState("0");
@@ -120,7 +122,7 @@ const CategoryPage = () => {
     };
 
     const getRecruit = () => {
-        axios.get(`http://43.200.19.7:8080/api/v1/main/category?category=${state.state}`,  {
+        axios.get(`http://43.200.19.7:8080/api/v1/main/hot`,  {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': ` Bearer ${ACCESS_TOKEN}`
@@ -140,7 +142,7 @@ const CategoryPage = () => {
     return (
         <RecruitBox>
             <TitleBox>
-                <Title>{state.state} 챌린지</Title>
+                <Title>실시간 인기 챌린지</Title>
                 <ChallengeNumber>
                     총 {total}개의 챌린지
                 </ChallengeNumber>
@@ -151,7 +153,7 @@ const CategoryPage = () => {
                 {recruit && recruit.map(challenge=>(
                     <div>
                     <RecruitImageContainer onClick={handleImageClick}>    
-                        <RecruitImage id={challenge.challenge_id} src={`http://localhost:8080/api/v1/picture?pictureName=${challenge.picture}`}/>
+                        <RecruitImage id={challenge.challenge_id} src={`http://43.200.19.7:8080/api/v1/picture?pictureName=${challenge.picture}`}/>
                     </RecruitImageContainer>
                     <RecruitInfo>
                         <RecruitTitle>{challenge.challenge_title}</RecruitTitle>
@@ -160,7 +162,7 @@ const CategoryPage = () => {
                             <span style={{fontWeight:'bold'}}>{challenge.startDate.substring(0, 4)}.{challenge.startDate.substring(4, 6)}.{challenge.startDate.substring(6, 8)}
                             &nbsp;~&nbsp;
                             {challenge.endDate.substring(0, 4)}.{challenge.endDate.substring(4, 6)}.{challenge.endDate.substring(6, 8)}</span></RecruitDetails>
-                        <RecruitExplain>{challenge.detail}</RecruitExplain>
+                        <RecruitExplain><div style={{fontWeight:"500"}}>신칭인원</div><div style={{color:"#42AF53", fontWeight:'bold'}}>{challenge.participantsNumber} 명</div></RecruitExplain>
                     </RecruitInfo>
                     </div>
                 ))}
@@ -181,4 +183,4 @@ const CategoryPage = () => {
     );
 };
 
-export default CategoryPage;
+export default HotPage;

@@ -63,7 +63,7 @@ const ShowMission = () => {
         <MissionContainer>
                 {missions && missions.map((mission,index) => (
                     <TextWrapper>
-                        <Mission>미션 {index+1}. &nbsp;&nbsp; {mission.mission} &nbsp;&nbsp; 날짜: {mission.missionDate}</Mission>
+                        <Mission>미션 {index+1}. &nbsp;&nbsp;&nbsp; [{mission.missionDate.substring(0,4)}.{mission.missionDate.substring(4,6)}.{mission.missionDate.substring(6,8)}] &nbsp;&nbsp; {mission.mission} &nbsp;&nbsp; </Mission>
                         <Line/>
                     </TextWrapper>
                 ))}

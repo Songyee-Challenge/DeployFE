@@ -17,9 +17,12 @@ const Wrapper = styled.div`
 
 const Relay = styled.div`
   display: flex;
+  height: 70px;
+  margin-top: -40px;
+  margin-bottom: 30px;
   border-bottom: 3px solid black;
 `;
-
+ 
 const RelayTxt = styled.p`
   font-size: 1.6rem;
   font-weight: bolder;
@@ -44,6 +47,7 @@ const Moment = styled.p`
 
 const Sub = styled.p`
   font-size: 1.1rem;
+  margin-top: -10px;
   margin-bottom: 40px;
 `;
 
