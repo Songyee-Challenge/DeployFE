@@ -77,6 +77,7 @@ const Title = styled.div`
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
+  overflow: hidden;
 `;
 const Date = styled.div`
     font-family: "Pretendard";
