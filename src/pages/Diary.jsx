@@ -108,7 +108,7 @@ const Date = styled.p`
 `;
 
 const Title = styled.p`
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: bolder;
   margin-top: 5px;
 `;

@@ -104,7 +104,6 @@ const Explain = styled.div`
     display: -webkit-box;
     -webkit-line-clamp: 2; // 원하는 라인수
     -webkit-box-orient: vertical;
-    margin-bottom: 60px;
 `
 
 const HomePage = () => {
@@ -222,7 +221,7 @@ const HomePage = () => {
               <Title>{challenge.challenge_title}</Title>
               <Date><span style={{fontWeight:"bold"}}>기간</span>
               <span>{challenge.startDate.substring(0,4)}.{challenge.startDate.substring(4,6)}.{challenge.startDate.substring(6,8)} ~ {challenge.endDate.substring(0,4)}.{challenge.endDate.substring(4,6)}.{challenge.endDate.substring(6,8)}</span></Date>
-              <Date><span style={{fontWeight:"bold"}}>신칭인원</span><span style={{color:"#42AF53"}}>{challenge.participantsNumber} 명</span></Date>
+              <Date><span style={{fontWeight:"bold", marginBottom:"60px"}}>신칭인원</span><span style={{color:"#42AF53"}}>{challenge.participantsNumber} 명</span></Date>
             </div>
           ))}
       </CardContainer>
