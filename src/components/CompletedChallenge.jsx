@@ -53,6 +53,13 @@ const CompletedInfo = styled.div`
 const CompletedTitle = styled.h3`
   font-weight: bold;
   font-size: 1.25rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-word;
+  width: 253px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; // 원하는 라인수
+  -webkit-box-orient: vertical;
 `;
 
 const CompletedDetails = styled.p`
@@ -77,6 +84,7 @@ const CompletedDate = styled.p`
   font-size: 1.1rem;
   display: flex;
   justify-content: space-between;
+  width: 253px;
 `;
 
 const BtnContainer = styled.div`

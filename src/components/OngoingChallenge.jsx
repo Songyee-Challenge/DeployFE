@@ -51,6 +51,13 @@ const OngoingInfo = styled.div`
 const OngoingTitle = styled.h3`
   font-weight: bold;
   font-size: 1.25rem;
+  width: 253px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; // 원하는 라인수
+  -webkit-box-orient: vertical;
 `;
 
 const OngoingDetails = styled.p`
@@ -73,6 +80,7 @@ const OngoingDate = styled.p`
   font-size: 1.1rem;
   display: flex;
   justify-content: space-between;
+  width: 253px;
 `;
 const BtnContainer = styled.div`
   position: fixed;
