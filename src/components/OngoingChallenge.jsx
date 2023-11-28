@@ -54,8 +54,6 @@ const OngoingTitle = styled.h3`
 `;
 
 const OngoingDetails = styled.p`
-display: flex;
-  justify-content: space-between;
   margin-top: 0.5rem;
   border-top: 1px solid #ccc;
   padding-top: 0.5rem;
@@ -67,6 +65,14 @@ display: flex;
   display: -webkit-box;
   -webkit-line-clamp: 2; // 원하는 라인수
   -webkit-box-orient: vertical;
+`;
+const OngoingDate = styled.p`
+  margin-top: 0.5rem;
+  border-top: 1px solid #ccc;
+  padding-top: 0.5rem;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: space-between;
 `;
 const BtnContainer = styled.div`
   position: fixed;
@@ -125,7 +131,7 @@ const OngoingChallenge = () => {
               </OngoingImageContainer>
               <OngoingInfo>
                 <OngoingTitle>{challenge.challenge_title}</OngoingTitle>
-                <OngoingDetails>
+                <OngoingDate>
                   <span style={{fontWeight:'bold'}}>기간</span>
                   <span style={{ fontWeight: "bold" }}>
                     {challenge.startDate.substring(0, 4)}.
@@ -136,7 +142,7 @@ const OngoingChallenge = () => {
                     {challenge.endDate.substring(4, 6)}.
                     {challenge.endDate.substring(6, 8)}
                   </span>
-                </OngoingDetails>
+                </OngoingDate>
                 <OngoingDetails>
                   <span>진행</span>
                   <span>

@@ -8,7 +8,7 @@ const ProgressBarContainer = styled.div`
 `;
 
 const ProgressBarWrapper = styled.div`
-  width: 150px; /* 프로그레스 바의 전체 너비 */
+  width: 130px; /* 프로그레스 바의 전체 너비 */
   height: 10px; /* 프로그레스 바의 높이 */
   border-radius: 10px; /* 모서리가 둥근 직사각형 모양 설정 */
   background-color: #ccc; /* 기본 회색 배경색 */

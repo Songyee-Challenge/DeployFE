@@ -104,7 +104,7 @@ const Line = styled.hr`
 `;
 
 const Explain = styled.p`
-  font-size: 22px;
+  font-size: 18px;
   width: 700px;
   word-break:break-all;
   white-space: pre-line;

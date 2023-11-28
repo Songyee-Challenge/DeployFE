@@ -70,6 +70,14 @@ display: flex;
   -webkit-line-clamp: 2; // 원하는 라인수
   -webkit-box-orient: vertical;
 `;
+const CompletedDate = styled.p`
+  margin-top: 0.5rem;
+  border-top: 1px solid #ccc;
+  padding-top: 0.5rem;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: space-between;
+`;
 
 const BtnContainer = styled.div`
   position: fixed;
@@ -128,7 +136,7 @@ const CompletedChallenge = () => {
                 </CompletedImageContainer>
             <CompletedInfo>
                 <CompletedTitle>{challenge.challenge_title}</CompletedTitle>
-                <CompletedDetails>
+                <CompletedDate>
                   <span>기간</span>
                   <span style={{ fontWeight: "bold" }}>
                     {challenge.startDate.substring(0, 4)}.
@@ -139,7 +147,7 @@ const CompletedChallenge = () => {
                     {challenge.endDate.substring(4, 6)}.
                     {challenge.endDate.substring(6, 8)}
                   </span>
-                </CompletedDetails>
+                </CompletedDate>
                 <CompletedDetails>
                     <span>진행</span>
                     <span><ProgressBar percentage={challenge.progressPercent}/></span>
