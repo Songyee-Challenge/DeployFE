@@ -119,7 +119,7 @@ const OngoingChallenge = () => {
               <OngoingInfo>
                 <OngoingTitle>{challenge.challenge_title}</OngoingTitle>
                 <OngoingDetails>
-                  <span>기간</span>
+                  <span style={{fontWeight:'bold'}}>기간</span>
                   <span style={{ fontWeight: "bold" }}>
                     {challenge.startDate.substring(0, 4)}.
                     {challenge.startDate.substring(4, 6)}.
