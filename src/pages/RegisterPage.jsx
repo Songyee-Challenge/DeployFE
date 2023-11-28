@@ -208,7 +208,7 @@ const RegisterPage = () => {
     }
 
     const handleSubmit = () => {
-        // if (codecheck) {
+        if (codecheck) {
             if (isSMemail && ispwform && pwcheck) {
                 axios.post('http://43.200.19.7:8080/api/v1/user/signup', {
                     email: email,
@@ -232,9 +232,9 @@ const RegisterPage = () => {
             } else {
                 alert('회원가입 형식에 맞게 진행해주세요.');
             }
-        // } else {
-        //     alert("코드 인증에 실패했습니다.");
-        // }
+        } else {
+            alert("코드 인증에 실패했습니다.");
+        }
     }
 
 
