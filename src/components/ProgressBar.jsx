@@ -13,7 +13,6 @@ const ProgressBarWrapper = styled.div`
   border-radius: 10px; /* 모서리가 둥근 직사각형 모양 설정 */
   background-color: #ccc; /* 기본 회색 배경색 */
   position: relative;
-  margin-right: 10px; /* 오른쪽 여백 */
   margin-left:12px;
 `;
 
