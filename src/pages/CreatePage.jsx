@@ -14,7 +14,7 @@ const CreatePage = () => {
     const [inputcount, setInputCount] = useState(0);
 
     const today = new Date();
-    const [startDate, setStartDate] = useState(new Date(today.setDate(today.getDate() - 22)));
+    const [startDate, setStartDate] = useState(new Date(today.setDate(today.getDate() - 100)));
     const [endDate, setEndDate] = useState(new Date(today));
     const [missions, setMissions] = useState([]);
     const [mtxt, setMtxt] = useState("");
