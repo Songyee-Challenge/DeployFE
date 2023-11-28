@@ -92,6 +92,7 @@ const Date = styled.div`
     width: 225px;
 `
 const Explain = styled.div`
+    width: 225px;
     margin-bottom: 60px;
     border-top: 1px solid #ccc;
     padding-top: 0.5rem;
