@@ -127,7 +127,7 @@ const Challenge = () => {
   const [endDate, setEndDate] = useState("");
 
   const getChallenge = () => {
-    axios.get(`/api/v1/challenge/${state.state}`,  {
+    axios.get(`http://43.200.19.7:8080/api/v1/challenge/${state.state}`,  {
       headers: {
           'Content-Type': 'application/json',
           'Authorization': ` Bearer ${ACCESS_TOKEN}`
