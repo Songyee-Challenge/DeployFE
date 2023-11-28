@@ -58,8 +58,13 @@ const OngoingDetails = styled.p`
   border-top: 1px solid #ccc;
   padding-top: 0.5rem;
   font-size: 1.1rem;
-  display: flex;
-  justify-content: space-between;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-word;
+  width: 253px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; // 원하는 라인수
+  -webkit-box-orient: vertical;
 `;
 const BtnContainer = styled.div`
   position: fixed;

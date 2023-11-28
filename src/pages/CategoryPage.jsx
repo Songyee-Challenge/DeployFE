@@ -151,7 +151,7 @@ const CategoryPage = () => {
                 {recruit && recruit.map(challenge=>(
                     <div>
                     <RecruitImageContainer onClick={handleImageClick}>    
-                        <RecruitImage id={challenge.challenge_id} src={`http://localhost:8080/api/v1/picture?pictureName=${challenge.picture}`}/>
+                        <RecruitImage id={challenge.challenge_id} src={`http://43.200.19.7:8080/api/v1/picture?pictureName=${challenge.picture}`}/>
                     </RecruitImageContainer>
                     <RecruitInfo>
                         <RecruitTitle>{challenge.challenge_title}</RecruitTitle>

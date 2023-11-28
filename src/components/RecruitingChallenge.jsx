@@ -69,7 +69,7 @@ const RecruitExplain = styled.div`
   text-overflow: ellipsis;
   overflow: hidden;
   word-break: break-word;
-  width: 17rem;
+  width: 253px;
   display: -webkit-box;
   -webkit-line-clamp: 2; // 원하는 라인수
   -webkit-box-orient: vertical;
