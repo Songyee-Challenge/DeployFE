@@ -92,7 +92,7 @@ const Num = styled.span`
   font-family: "Abril+Fatface";
   width: 10px;
   text-align: center;
-`
+`;
 
 const Btn = styled.button`
   width: 180px;
