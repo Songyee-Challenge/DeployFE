@@ -54,6 +54,8 @@ const OngoingTitle = styled.h3`
 `;
 
 const OngoingDetails = styled.p`
+display: flex;
+  justify-content: space-between;
   margin-top: 0.5rem;
   border-top: 1px solid #ccc;
   padding-top: 0.5rem;
