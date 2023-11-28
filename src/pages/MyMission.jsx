@@ -231,7 +231,7 @@ const MyMission = () => {
   }, []);
 
   const handleImageClick = (e) => {
-    navigate(`http://43.200.19.7:8080/songchallenge/completeddetail`, {
+    navigate(`/songchallenge/completeddetail`, {
       state: {
         state: e.target.id,
         start:
