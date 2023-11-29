@@ -87,7 +87,7 @@ const BtnContainer = styled.div`
   top: 75%;
   right: -20px;
 `;
-const OngoingProcess = styled.div`
+const OngoingProgress = styled.div`
     margin-top: 0.5rem;
   border-top: 1px solid #ccc;
   padding-top: 0.5rem;
