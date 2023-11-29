@@ -84,6 +84,13 @@ const Title = styled.div`
     font-family: 'Pretendard';
     font-weight:bold;
     font-size: 1.6rem;
+    width: 253px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-break: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 1; // 원하는 라인수
+    -webkit-box-orient: vertical;
 `
 
 const ChallengeNumber = styled.div`
