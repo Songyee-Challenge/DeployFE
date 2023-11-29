@@ -48,6 +48,7 @@ const CompletedImage = styled.img`
 const CompletedInfo = styled.div`
   width: 17rem;
   color: #747474;
+  margin-bottom: 100px;
 `;
 
 const CompletedTitle = styled.h3`

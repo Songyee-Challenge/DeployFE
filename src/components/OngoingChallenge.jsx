@@ -46,6 +46,7 @@ const OngoingImage = styled.img`
 
 const OngoingInfo = styled.div`
   width: 17rem;
+  margin-bottom: 100px;
 `;
 
 const OngoingTitle = styled.h3`
