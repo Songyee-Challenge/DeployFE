@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Wrapper = styled.div`
-  padding-top: 11px;
+  padding-top: 0px;
   font-family: "Pretendard";
 `;
 
