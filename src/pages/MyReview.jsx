@@ -6,7 +6,7 @@ import remove from "../images/remove.png";
 import axios from "axios";
 
 const Wrapper = styled.div`
-  padding-top: 33px;
+  padding-top: 22px;
   font-family: "Pretendard";
 `;
 
