@@ -67,6 +67,7 @@ const RecruitDetails = styled.div`
   font-size: 1.1rem;
   display: flex;
   justify-content: space-between;
+  width: 253px;
 `;
 const RecruitExplain = styled.div`
   margin-top: 0.5rem;
