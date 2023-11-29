@@ -93,6 +93,16 @@ const BtnContainer = styled.div`
   right: -20px;
 `;
 
+const CompletedProcess = styled.div`
+    margin-top: 0.5rem;
+  border-top: 1px solid #ccc;
+  padding-top: 0.5rem;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: space-between;
+  width: 253px;
+`
+
 const CompletedChallenge = () => {
   const navigate = useNavigate();
   const [complete, setComplete] = useState([]);
@@ -156,10 +166,10 @@ const CompletedChallenge = () => {
                     {challenge.endDate.substring(6, 8)}
                   </span>
                 </CompletedDate>
-                <CompletedDetails>
+                <CompletedProcess>
                     <span>진행</span>
                     <span><ProgressBar percentage={challenge.progressPercent}/></span>
-                </CompletedDetails>
+                </CompletedProcess>
                 {/* 진행바 추가!! */}
                 <CompletedDetails>{challenge.detail}</CompletedDetails>
               </CompletedInfo>

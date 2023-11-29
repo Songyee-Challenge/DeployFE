@@ -87,6 +87,15 @@ const BtnContainer = styled.div`
   top: 75%;
   right: -20px;
 `;
+const OngoingProcess = styled.div`
+    margin-top: 0.5rem;
+  border-top: 1px solid #ccc;
+  padding-top: 0.5rem;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: space-between;
+  width: 253px;
+`
 
 const OngoingChallenge = () => {
   const navigate = useNavigate();
@@ -151,12 +160,12 @@ const OngoingChallenge = () => {
                     {challenge.endDate.substring(6, 8)}
                   </span>
                 </OngoingDate>
-                <OngoingDetails>
+                <OngoingProgress>
                   <span>진행</span>
                   <span>
                     <ProgressBar percentage={challenge.progressPercent} />
                   </span>
-                </OngoingDetails>
+                </OngoingProgress>
                 {/* 진행바 기능 추가해야됨! */}
                 <OngoingDetails>{challenge.detail}</OngoingDetails>
               </OngoingInfo>
