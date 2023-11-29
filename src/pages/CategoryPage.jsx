@@ -39,6 +39,11 @@ const RecruitImage = styled.img`
 const RecruitInfo = styled.div`
     width:17rem;
     margin-bottom: 100px;
+`;
+
+const RecruitTitle = styled.h3`
+    font-weight: bold;
+    font-size:1.25rem;
     width: 253px;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -46,11 +51,6 @@ const RecruitInfo = styled.div`
     display: -webkit-box;
     -webkit-line-clamp: 1; // 원하는 라인수
     -webkit-box-orient: vertical;
-`;
-
-const RecruitTitle = styled.h3`
-    font-weight: bold;
-    font-size:1.25rem;
 `;
 
 const RecruitDetails = styled.div`
