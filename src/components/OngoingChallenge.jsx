@@ -72,6 +72,7 @@ const OngoingDetails = styled.p`
   display: -webkit-box;
   -webkit-line-clamp: 2; // 원하는 라인수
   -webkit-box-orient: vertical;
+  margin-bottom: 60px;
 `;
 const OngoingDate = styled.p`
   margin-top: 0.5rem;
