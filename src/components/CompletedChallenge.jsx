@@ -48,6 +48,7 @@ const CompletedImage = styled.img`
 const CompletedInfo = styled.div`
   width: 17rem;
   color: #747474;
+  margin-bottom: 100px;
 `;
 
 const CompletedTitle = styled.h3`
@@ -58,8 +59,9 @@ const CompletedTitle = styled.h3`
   word-break: break-word;
   width: 253px;
   display: -webkit-box;
-  -webkit-line-clamp: 2; // 원하는 라인수
+  -webkit-line-clamp: 1; // 원하는 라인수
   -webkit-box-orient: vertical;
+  text-align: left;
 `;
 
 const CompletedDetails = styled.p`

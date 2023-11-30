@@ -51,6 +51,13 @@ const RecruitInfo = styled.div`
 const RecruitTitle = styled.h3`
   font-weight: bold;
   font-size: 1.25rem;
+  width: 253px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; // 원하는 라인수
+  -webkit-box-orient: vertical;
 `;
 
 const RecruitDetails = styled.div`
@@ -60,6 +67,7 @@ const RecruitDetails = styled.div`
   font-size: 1.1rem;
   display: flex;
   justify-content: space-between;
+  width: 253px;
 `;
 const RecruitExplain = styled.div`
   margin-top: 0.5rem;

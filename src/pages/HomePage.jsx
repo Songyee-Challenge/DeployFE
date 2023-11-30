@@ -145,9 +145,8 @@ const HomePage = () => {
   }, []);
 
   const handleImageClick = (e) => {
-    console.log(e.target.parentElement.parentElement.children[2].textContent);
-    navigate(`/songchallenge/recruitdetail`, { state: {state: e.target.parentElement.parentElement.children[1].children[1]
-      .children[1].textContent }});
+    console.log(e.target);
+    navigate(`/songchallenge/recruitdetail`, { state: {state: e.target.parentElement.id, start: e.target.parentElement.parentElement.children[2].children[1].textContent }});
 };
 
   return (

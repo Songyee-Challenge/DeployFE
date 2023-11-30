@@ -44,6 +44,13 @@ const RecruitInfo = styled.div`
 const RecruitTitle = styled.h3`
     font-weight: bold;
     font-size:1.25rem;
+    width: 253px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-break: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 1; // 원하는 라인수
+    -webkit-box-orient: vertical;
 `;
 
 const RecruitDetails = styled.div`
@@ -160,7 +167,7 @@ const TestCategoryPage = () => {
                                 <span style={{fontWeight:'bold'}}>{challenge.startDate.substring(0, 4)}.{challenge.startDate.substring(4, 6)}.{challenge.startDate.substring(6, 8)}
                                 &nbsp;~&nbsp;
                                 {challenge.endDate.substring(0, 4)}.{challenge.endDate.substring(4, 6)}.{challenge.endDate.substring(6, 8)}</span></RecruitDetails>
-                            <RecruitExplain>{challenge.explain}</RecruitExplain>
+                            <RecruitExplain>{challenge.detail}</RecruitExplain>
                         </RecruitInfo>
                         </div>
                     ))}

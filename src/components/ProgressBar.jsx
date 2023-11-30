@@ -28,6 +28,7 @@ const PercentageNumber = styled.span`
   color: #00A7FF; /* 하늘색으로 퍼센트 숫자의 색상 설정 */
   font-weight: bold;
   margin-left: 3px;
+  border-radius: 10px;
 `;
 
 const ProgressBar = ({ percentage = 0 }) => {
