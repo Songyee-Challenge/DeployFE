@@ -121,8 +121,8 @@ const OngoingProcess = styled.div`
   display: flex;
   justify-content: space-between;
   width: 253px;
-  position: relative;
-  z-index: 1;
+
+
 `
 const OngoingExplain = styled.div`
   width: 245px;
@@ -182,8 +182,8 @@ const OngoingChallenge = () => {
       </TitleBox>
       <Line/>
       <Body>
-            <ChallengeCount>총 {total}개의 챌린지</ChallengeCount>
-            <OngoingList>
+        <ChallengeCount>총 {total}개의 챌린지</ChallengeCount>
+          <OngoingList>
            {ongoing && ongoing.map(challenge => (
             <div>
               <OngoingImageContainer onClick={handleImageClick}>
