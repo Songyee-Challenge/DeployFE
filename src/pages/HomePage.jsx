@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import MenuBox from "../components/MenuBox";
+import CategoryBox from "../components/CategoryBox";
 import mymission from "../images/mymission.png";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import axios from "axios";
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  margin-bottom: 180px;
+`;
+
 const CategoryLine = styled.div`
   display: flex;
   margin: 40px 60px 20px;
@@ -60,7 +63,7 @@ const MissionImg = styled.img`
 `;
 const BtnContainer = styled.div`
   position: fixed;
-  top: 75%;
+  top: 80%;
   right: -20px;
 `;
 const Title = styled.div`
@@ -80,30 +83,45 @@ const Title = styled.div`
   overflow: hidden;
 `;
 const Date = styled.div`
-    font-family: "Pretendard";
-    font-weight: 600;
-    font-size: 1rem;
-    color: #646464;
-    margin-top: 0.5rem;
-    border-top: 1px solid #ccc;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    display: flex;
-    justify-content: space-between;
-    width: 225px;
+  font-family: "Pretendard";
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  border-top: 1px solid #ccc;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  width: 225px;
 `
 const Explain = styled.div`
-    width: 225px;
-    margin-bottom: 60px;
-    border-top: 1px solid #ccc;
-    padding-top: 0.5rem;
-    font-size: 1rem;   
-    text-overflow: ellipsis;
-    overflow: hidden;
-    word-break: break-word;
-    display: -webkit-box;
-    -webkit-line-clamp: 2; // 원하는 라인수
-    -webkit-box-orient: vertical;
+  width: 225px;
+  margin-bottom: 60px;
+  border-top: 1px solid #ccc;
+  padding-top: 0.5rem;
+  font-size: 1rem;   
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; // 원하는 라인수
+  -webkit-box-orient: vertical;
+`
+
+const Participant = styled.div`
+  width: 225px;
+  margin-bottom: 60px;
+  border-top: 1px solid #ccc;
+  padding-top: 0.5rem;
+  font-size: 1rem;   
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-word;
+  display: flex;
+  justify-content: space-between;
+  width: 225px;
+  font-weight: bold;
+  margin-bottom: 60px;
 `
 
 const HomePage = () => {
@@ -152,7 +170,7 @@ const HomePage = () => {
 
   return (
     <Wrapper>
-      <MenuBox />
+      <CategoryBox />
       <CategoryLine>
         <CategoryTxt>마감 임박 챌린지</CategoryTxt>
         <Line />
@@ -178,7 +196,7 @@ const HomePage = () => {
                 />
               </ImgBox>
               <Title>{challenge.challenge_title}</Title>
-              <Date><span style={{fontWeight:"500"}}>기간</span>
+              <Date><span style={{fontWeight:"bold"}}>기간</span>
               <span><span style={{color:"#42AF53"}}>{challenge.startDate.substring(0,4)}.{challenge.startDate.substring(4,6)}.{challenge.startDate.substring(6,8)}</span> ~ {challenge.endDate.substring(0,4)}.{challenge.endDate.substring(4,6)}.{challenge.endDate.substring(6,8)}</span></Date>
               <Explain>{challenge.detail}</Explain>
             </div>
@@ -222,7 +240,7 @@ const HomePage = () => {
               <Title>{challenge.challenge_title}</Title>
               <Date><span style={{fontWeight:"bold"}}>기간</span>
               <span>{challenge.startDate.substring(0,4)}.{challenge.startDate.substring(4,6)}.{challenge.startDate.substring(6,8)} ~ {challenge.endDate.substring(0,4)}.{challenge.endDate.substring(4,6)}.{challenge.endDate.substring(6,8)}</span></Date>
-              <Date><span style={{fontWeight:"bold", marginBottom:"60px"}}>신칭인원</span><span style={{color:"#42AF53"}}>{challenge.participantsNumber} 명</span></Date>
+              <Participant><span>신칭인원</span><span style={{color:"#42AF53"}}>{challenge.participantsNumber} 명</span></Participant>
             </div>
           ))}
       </CardContainer>

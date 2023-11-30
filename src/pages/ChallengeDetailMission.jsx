@@ -31,7 +31,7 @@ const Line = styled.hr`
     margin: 10px 0;
 `;
 
-const ShowMission = () => {
+const ChallengeDetailMission = () => {
     const {state} = useLocation();
     let ACCESS_TOKEN = localStorage.getItem("accessToken");
     const [challenge, setChallenge] = useState([]);
@@ -71,4 +71,4 @@ const ShowMission = () => {
     );
 };
 
-export default ShowMission;
+export default ChallengeDetailMission;

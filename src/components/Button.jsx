@@ -11,10 +11,12 @@ const Btn = styled.div `
     color: white;
     width: 20vw;
     height: 120px;
+    min-width: 250px;
     border-radius: 25px;
     line-height: 40px;
     display: flex;
     align-items: center;
+    justify-content: center;
     letter-spacing: 3px;
     white-space: pre-wrap;
 `
@@ -35,7 +37,7 @@ const Button = (props) => {
         <Btn onClick={onClick} fontSize={fontSize || "3.5rem"}>
             <Txt marginTop={marginTop}>
             {title || "버튼"}
-            <Img src={arrow} width={width || "80px"} marginLeft={marginLeft || "30px"}/>
+            <Img src={arrow} width={width || "70px"} marginLeft={marginLeft || "30px"}/>
             </Txt>
         </Btn>
     );

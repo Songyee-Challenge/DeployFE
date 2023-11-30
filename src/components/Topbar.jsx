@@ -20,7 +20,7 @@ const Wrapper = styled.div`
 `;
 const MainMenu = styled.div`
     display: flex;
-    margin-left: 3vw;
+    margin-left: 45px;
 `;
 const Menu = styled.div`
     color: #000;
@@ -33,7 +33,7 @@ const Menu = styled.div`
 const LogoMenu = styled.div`
     display: flex;
     align-items: center;
-    margin-left: 3vw;
+    margin-left: 45px;
 `;
 
 const Topbar = () => {
@@ -47,8 +47,8 @@ const Topbar = () => {
                 navigate('/home');
             }}/>
             <MainMenu>
-            <Menu marginR="3vw" onClick={() => {
-                navigate('/songchallenge');
+            <Menu marginR="35px" onClick={() => {
+                navigate('/challenge/recruiting');
             }}>송이의 챌린지</Menu>
             <Menu onClick={() => {
                 navigate('/diary');

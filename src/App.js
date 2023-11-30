@@ -14,10 +14,6 @@ import MyInfo from "./pages/MyInfo";
 import MyRecruit from "./pages/MyRecruit";
 import MyOngoing from "./pages/MyOngoing";
 import MyCompleted from "./pages/MyCompleted";
-import SongChallenge from "./pages/SongChallenge";
-import RecruitDetailPage from "./pages/RecruitDetailPage";
-import OngoingDetailPage from "./pages/OngoingDetailPage";
-import CompletedDetailPage from "./pages/CompletedDetailPage";
 import AgreePage from "./pages/AgreePage";
 import CreatePage from "./pages/CreatePage";
 import Diary from "./pages/Diary";
@@ -26,6 +22,14 @@ import CategoryPage from "./pages/CategoryPage";
 import TestCategoryPage from "./pages/TestCategoryPage";
 import ImminentPage from "./pages/ImminentPage";
 import HotPage from "./pages/HotPage";
+import StudyCategoryPage from "./pages/StudyCategoryPage";
+import RecruitingChallenge from "./pages/RecruitingChallenge";
+import OngoingChallenge from "./pages/OngoingChallenge";
+import CompletedChallenge from "./pages/CompletedChallenge";
+import ChallengeDetail from "./pages/ChallengeDetail";
+import ChallengeDetailCalendar from "./pages/ChallengeDetailCalendar";
+import ChallengeDetailMission from "./pages/ChallengeDetailMission";
+import ChallengeDetailGuide from "./pages/ChallengeDetailGuide";
 
 function App() {
   const location = useLocation();
@@ -48,19 +52,13 @@ function App() {
               <Route path="/create" element={<CreatePage />} />
               <Route path="/imminent" element={<ImminentPage/>}/>
               <Route path="/hot" element={<HotPage/>}/>
-              <Route path="/songchallenge" element={<SongChallenge />}>
-                <Route
-                  path="/songchallenge/recruitdetail"
-                  element={<RecruitDetailPage />}
-                />
-                <Route
-                  path="/songchallenge/ongoingdetail"
-                  element={<OngoingDetailPage />}
-                />
-                <Route
-                  path="/songchallenge/completeddetail"
-                  element={<CompletedDetailPage />}
-                />
+              <Route path="/challenge/recruiting" element={<RecruitingChallenge/>}/>
+              <Route path="/challenge/ongoing" element={<OngoingChallenge/>}/>
+              <Route path="/challenge/finished" element={<CompletedChallenge/>}/>
+              <Route path="/challenge/detail" element={<ChallengeDetail/>}>
+                <Route path="/challenge/detail/calendar" element={<ChallengeDetailCalendar/>}/>
+                <Route path="/challenge/detail/mission" element={<ChallengeDetailMission/>}/>
+                <Route path="/challenge/detail/guide" element={<ChallengeDetailGuide/>}/>
               </Route>
               <Route path="/category/:id" element={<CategoryPage/>}/>
               <Route path="/category/test" element={<TestCategoryPage/>}/>
@@ -74,6 +72,7 @@ function App() {
               </Route>
               <Route path="/diary" element={<Diary />}></Route>
               <Route path="/diary/post" element={<PostRelay />} />
+              <Route path="/category/study" element={<StudyCategoryPage />} />
             </Routes>
           </Page>
         </>

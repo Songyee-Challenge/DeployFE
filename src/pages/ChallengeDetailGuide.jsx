@@ -52,7 +52,7 @@ const Point = styled.p`
     margin-bottom:0px;
 `;
 
-const ChallengeGuide = () => {
+const ChallengeDetailGuide = () => {
   const {state} = useLocation();
     let ACCESS_TOKEN = localStorage.getItem("accessToken");
     const [challenge, setChallenge] = useState([]);
@@ -98,4 +98,4 @@ const ChallengeGuide = () => {
   );
 };
 
-export default ChallengeGuide;
+export default ChallengeDetailGuide;

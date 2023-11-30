@@ -43,7 +43,7 @@ const MenuBox = () => {
                 <Box>
                     <Menu onClick={() => {navigate('/category/test')}}>자격증/<br/>&nbsp;시험</Menu>
                     <Menu onClick={handleMenu} id="공채">공채</Menu>
-                    <Menu onClick={handleMenu} id="자유스터디">&nbsp;자유<br/>스터디</Menu>
+                    <Menu onClick={() => {navigate('/category/study')}}>&nbsp;자유<br/>스터디</Menu>
                     <Menu onClick={handleMenu} id="취미">취미</Menu>
                     <Menu onClick={handleMenu} id="운동">운동</Menu>
                 </Box>

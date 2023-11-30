@@ -43,7 +43,7 @@ const Container = styled.div`
   border-radius: 10px;
   box-shadow: 0cm 0.5cm 0.5cm 0cm #dddddd;
   width: 75vw;
-  height: 280px;
+  height: 240px;
   margin-top: 60px;
   background-color: #f2f2f2;
   padding-bottom: 15px;

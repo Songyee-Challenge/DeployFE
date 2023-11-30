@@ -156,7 +156,7 @@ const CreatePage = () => {
             })
             .then(response => {
                 alert('챌린지 개설 완료!');
-                navigate('/songchallenge');
+                navigate('/challenge/recruiting');
                 console.log(response);
             })
             .catch(error => {
