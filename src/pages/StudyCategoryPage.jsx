@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Button from '../components/Button';
 import SearchBar from '../components/SearchBar';
@@ -121,6 +121,8 @@ const Body = styled.div`
 `;
 
 const CategoryPage = () => {
+  const params = useParams();
+  const challengeId = params.id;
     const navigate = useNavigate();
     const [recruit, setRecruit] = useState([]);
     const [total, setTotal] = useState("0");
@@ -129,9 +131,9 @@ const CategoryPage = () => {
     let ACCESS_TOKEN = localStorage.getItem("accessToken");
 
     const handleImageClick = (e) => {
-        console.log(e.target.parentElement.parentElement.children[1].children[1].children[1].textContent);
-        navigate(`/songchallenge/recruitdetail`, { state: {state: e.target.id, 
-            start: e.target.parentElement.parentElement.children[1].children[1].children[1].textContent}});
+      const challengeId = e.target.id;
+      console.log(challengeId);
+      navigate(`/challenge/detail/${challengeId}`);
     };
 
     const getRecruit = () => {

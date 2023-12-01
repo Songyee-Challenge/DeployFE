@@ -30,6 +30,7 @@ import ChallengeDetail from "./pages/ChallengeDetail";
 import ChallengeDetailCalendar from "./pages/ChallengeDetailCalendar";
 import ChallengeDetailMission from "./pages/ChallengeDetailMission";
 import ChallengeDetailGuide from "./pages/ChallengeDetailGuide";
+import MyInquire from "./pages/MyInquire";
 
 function App() {
   const location = useLocation();
@@ -55,20 +56,20 @@ function App() {
               <Route path="/challenge/recruiting" element={<RecruitingChallenge/>}/>
               <Route path="/challenge/ongoing" element={<OngoingChallenge/>}/>
               <Route path="/challenge/finished" element={<CompletedChallenge/>}/>
-              <Route path="/challenge/detail" element={<ChallengeDetail/>}>
-                <Route path="/challenge/detail/calendar" element={<ChallengeDetailCalendar/>}/>
-                <Route path="/challenge/detail/mission" element={<ChallengeDetailMission/>}/>
-                <Route path="/challenge/detail/guide" element={<ChallengeDetailGuide/>}/>
-              </Route>
+              <Route path="/challenge/detail/:id" element={<ChallengeDetail/>}/>
+              <Route path="/challenge/detail/:id/calendar" element={<ChallengeDetailCalendar/>}/>
+              <Route path="/challenge/detail/:id/mission" element={<ChallengeDetailMission/>}/>
+              <Route path="/challenge/detail/:id/guide" element={<ChallengeDetailGuide/>}/>
               <Route path="/category/:id" element={<CategoryPage/>}/>
               <Route path="/category/test" element={<TestCategoryPage/>}/>
               <Route path="/my" element={<MyChallenge />}>
                 <Route path="/my/mission" element={<MyMission />} />
                 <Route path="/my/review" element={<MyReview />} />
                 <Route path="/my/info" element={<MyInfo />} />
-                <Route path="/my/recruit" element={<MyRecruit />} />
-                <Route path="/my/ongoing" element={<MyOngoing />} />
-                <Route path="/my/completed" element={<MyCompleted />} />
+                <Route path="/my/challenge/recruit" element={<MyRecruit />} />
+                <Route path="/my/challenge/ongoing" element={<MyOngoing />} />
+                <Route path="/my/challenge/completed" element={<MyCompleted />} />
+                <Route path="/my/inquire" element={<MyInquire />}/>
               </Route>
               <Route path="/diary" element={<Diary />}></Route>
               <Route path="/diary/post" element={<PostRelay />} />

@@ -58,7 +58,7 @@ const Mybar = () => {
       <BarBox>
         <MenuTxt>내 도전들</MenuTxt>
         <Txt
-          isCurrent={location.pathname === "/my"}
+          isCurrent={location.pathname === "/my" || location.pathname.includes("/my/challenge")}
           onClick={() => {
             navigate("/my");
           }}
@@ -93,7 +93,15 @@ const Mybar = () => {
           내 정보 관리
         </Txt>
         <MenuTxt>고객센터</MenuTxt>
-        <Txt>1:1 문의</Txt>
+        <Txt
+          isCurrent={location.pathname === "/my/inquire"}
+          style={{ marginBottom: "50px" }}
+          onClick={() => {
+            navigate("/my/inquire");
+          }}
+        >
+          1:1 문의
+        </Txt>
       </BarBox>
     </Wrapper>
   );

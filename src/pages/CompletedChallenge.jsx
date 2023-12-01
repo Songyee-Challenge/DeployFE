@@ -65,6 +65,7 @@ const CompletedList = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 60px;
   width: 100%;
+  color: #9E9E9E;
 `;
 
 const CompletedImageContainer = styled.div`
@@ -99,6 +100,7 @@ const CompletedTitle = styled.h3`
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  color: #9E9E9E;
 `;
 
 const CompletedDetails = styled.div`
@@ -143,15 +145,8 @@ const CompletedChallenge = () => {
   let ACCESS_TOKEN = localStorage.getItem("accessToken");
 
   const handleImageClick = (e) => {
-    //console.log(e.target.id);
-    navigate(`/challenge/detail`, {
-      state: {
-        state: e.target.id,
-        start:
-          e.target.parentElement.parentElement.children[1].children[1]
-            .children[1].textContent,
-      },
-    });
+    const challengeId = e.target.id;
+    navigate(`/challenge/detail/${challengeId}`);
   };
 
   const getCompleted = () => {

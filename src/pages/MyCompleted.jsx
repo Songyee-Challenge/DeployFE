@@ -18,7 +18,7 @@ const Wrapper = styled.div`
 const MyBox = styled.div``;
 
 const ForestBox = styled.div`
-  margin-top: 5rem;
+  margin-top: 1.5rem;
   background-color: #ffe27c;
   border-radius: 10px;
   width: 75vw;
@@ -108,6 +108,9 @@ const ChallengeBox = styled.div`
 const Title = styled.h2`
   font-size: 20px;
   font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 `;
 
 const TitleDiv = styled.div`
@@ -290,7 +293,7 @@ const MyCompleted = () => {
     console.log(
       e.target.parentElement.children[0].children[0].textContent.substring(4)
     );
-    navigate(`/songchallenge/ongoingdetail`, {
+    navigate(`/challenge/detail`, {
       state: {
         state: e.target.id,
         start:

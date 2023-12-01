@@ -128,18 +128,8 @@ const RecruitingChallenge = ({ challenges }) => {
   let ACCESS_TOKEN = localStorage.getItem("accessToken");
 
   const handleImageClick = (e) => {
-    console.log(
-      e.target.parentElement.parentElement.children[1].children[1].children[1]
-        .textContent
-    );
-    navigate(`/challenge/detail`, {
-      state: {
-        state: e.target.id,
-        start:
-          e.target.parentElement.parentElement.children[1].children[1]
-            .children[1].textContent,
-      },
-    });
+    const challengeId = e.target.id;
+    navigate(`/challenge/detail/${challengeId}`);
   };
 
   const getRecruit = () => {

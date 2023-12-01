@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import example from '../images/exampleimage.png';
 import ProgressBar from '../components/ProgressBar';
 import axios from 'axios';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import ChallengeDetailBar from '../components/ChallengeDetailBar';
 
 const Wrapper = styled.div`
@@ -16,7 +16,7 @@ const BarLine = styled.div`
   border-bottom: 3px solid #000;
   width: 108px;
   margin-left: -35px;
-  padding-top: 50px;
+  padding-top: 40px;
   position: fixed;
 `;
 
@@ -126,7 +126,8 @@ const Sort = styled.div`
 `;
 
 const ChallengeDetail = () => {
-  const {state} = useLocation();
+  const params = useParams();
+  const challengeId = params.id;
   let ACCESS_TOKEN = localStorage.getItem("accessToken");
   const [challenge, setChallenge] = useState([]);
   const [length, setLength] = useState("");
@@ -141,7 +142,7 @@ const ChallengeDetail = () => {
     n = n.toString();
 
     if (n.length < digits) {
-        for (const i = 0; i < digits - n.length; i++)
+        for (let i = 0; i < digits - n.length; i++)
             zero += '0';
     }
     return zero + n;
@@ -151,10 +152,10 @@ const ChallengeDetail = () => {
             leadingZeros(today.getMonth() + 1, 2) +
             leadingZeros(today.getDate(), 2);
 
-  const getChallengeStatus = (challengeStart, challengeEnd) => {
-    if (challengeStart > today) {
+  const getChallengeStatus = (startDate, endDate) => {
+    if (startDate > today) {
         setChallengeStatus("모집 중인 챌린지");
-    } else if (today >= challengeStart && today <= challengeEnd) {
+    } else if (today >= startDate && today <= endDate) {
         setChallengeStatus("진행 중인 챌린지");
     } else {
         setChallengeStatus("종료된 챌린지");
@@ -162,7 +163,8 @@ const ChallengeDetail = () => {
     };
 
   const getChallenge = () => {
-    axios.get(`http://43.200.19.7:8080/api/v1/challenge/${state.state}`,  {
+    console.log('challengeId: ', challengeId);
+    axios.get(`http://43.200.19.7:8080/api/v1/challenge/${challengeId}`,  {
       headers: {
           'Content-Type': 'application/json',
           'Authorization': ` Bearer ${ACCESS_TOKEN}`
@@ -190,7 +192,7 @@ const ChallengeDetail = () => {
   }, [])
 
   const handleSubmit = () => {
-    axios.post(`http://43.200.19.7:8080/api/v1/challenge/register/${state.state}`,{}, {
+    axios.post(`http://43.200.19.7:8080/api/v1/challenge/register/${challengeId}`,{}, {
       headers: {
           'Content-Type': 'application/json',
           'Authorization': ` Bearer ${ACCESS_TOKEN}`
@@ -207,7 +209,7 @@ const ChallengeDetail = () => {
 
   return (
     <Wrapper>
-      <ChallengeDetailBar/>
+      <ChallengeDetailBar challengeId={challengeId}/>
       <BarLine/>
       <ContentWrapper>
         <ChDiv><ChallengeImg src={`http://43.200.19.7:8080/api/v1/picture?pictureName=${challenge.picture}`} /></ChDiv>
@@ -226,7 +228,9 @@ const ChallengeDetail = () => {
             </InfoItem>
             <InfoItem>
               <InfoLabel>기간&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</InfoLabel>
-              <span style={{fontWeight:'bold'}}>{state.start}</span>
+              <span style={{fontWeight:'bold'}}>{startDate}</span>
+              &nbsp;~&nbsp;
+              <span style={{fontWeight:'bold'}}>{endDate}</span>
             </InfoItem>
             <InfoItem>
               <InfoLabel>미션 개수</InfoLabel>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import CategoryBox from "../components/CategoryBox";
 import mymission from "../images/mymission.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Button from "../components/Button";
 import axios from "axios";
 
@@ -125,6 +125,8 @@ const Participant = styled.div`
 `
 
 const HomePage = () => {
+  const params = useParams();
+  const challengeId = params.id;
   const navigate = useNavigate();
   const [Imminent, setImminent] = useState([]);
   const [hotList, setHotList] = useState([]);
@@ -163,9 +165,9 @@ const HomePage = () => {
   }, []);
 
   const handleImageClick = (e) => {
-    console.log(e.target.parentElement.parentElement.children[2].textContent);
-    navigate(`/songchallenge/recruitdetail`, { state: {state: e.target.parentElement.parentElement.children[1].children[1]
-      .children[1].textContent }});
+    const challengeId = e.target.id;
+    console.log(challengeId);
+    navigate(`/challenge/detail/${challengeId}`);
 };
 
   return (
@@ -186,8 +188,9 @@ const HomePage = () => {
         {Imminent &&
           Imminent.map((challenge) => (
             <div>
-              <ImgBox key={challenge.challenge_id} onClick={handleImageClick} id={challenge.challenge_id}>
+              <ImgBox onClick={handleImageClick}>
                 <MissionImg
+                  id = {challenge.challenge_id}
                   referrerPolicy="no-referrer"
                   src={`http://43.200.19.7:8080/api/v1/picture?pictureName=${challenge.picture}`}
                   onClick={() => {
@@ -228,8 +231,9 @@ const HomePage = () => {
         {hotList &&
           hotList.map((challenge) => (
             <div>
-              <ImgBox key={challenge.challenge_id} onClick={handleImageClick} id={challenge.challenge_id}>
+              <ImgBox onClick={handleImageClick}>
                 <MissionImg
+                  id = {challenge.challenge_id}
                   referrerPolicy="no-referrer"
                   src={`http://43.200.19.7:8080/api/v1/picture?pictureName=${challenge.picture}`}
                   onClick={() => {

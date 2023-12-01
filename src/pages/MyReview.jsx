@@ -44,7 +44,7 @@ const Container = styled.div`
   box-shadow: 0cm 0.5cm 0.5cm 0cm #dddddd;
   width: 75vw;
   height: 240px;
-  margin-top: 60px;
+  margin-top: 35px;
   background-color: #f2f2f2;
   padding-bottom: 15px;
 `;
