@@ -22,6 +22,7 @@ const BarLine = styled.div`
 
 const GuideWrapper = styled.div`
   display: flex;
+  justify-content: center;
   width: 80%;
   margin-left: 7%;
   font-family:'Pretendard';
