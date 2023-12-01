@@ -290,19 +290,11 @@ const MyOngoing = () => {
   };
 
   const handleClickBtn = (e) => {
-    console.log(
-      e.target.parentElement.children[0].children[0].textContent.substring(4)
-    );
-    navigate(`/challenge/detail`, {
-      state: {
-        state: e.target.id,
-        start:
-          e.target.parentElement.children[0].children[0].textContent.substring(
-            4
-          ),
-      },
-    });
+    const challengeId = e.currentTarget.id;
+    console.log(challengeId);
+    navigate(`/challenge/detail/${challengeId}`);
   };
+  
   return (
     <Wrapper>
       <MyBox>

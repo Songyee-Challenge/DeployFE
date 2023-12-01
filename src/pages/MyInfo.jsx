@@ -9,17 +9,19 @@ const Wrapper = styled.div`
 `;
 
 const InfoTitle = styled.div`
-  font-size: 1.4rem;
-  border-bottom: 6px solid black;
-  font-weight: bolder;
-  height: 45px;
-  width: 160px;
+font-size: 1.4rem;
+border-bottom: 6px solid black;
+font-weight: bolder;
+height: 35px;
+width: 160px;
+margin-top: 8.8367px;
 `;
 
 const InfoBox = styled.div`
   border-top: 1px solid black;
   width: 75vw;
   margin-bottom: 50px;
+  margin-top: 0px;
 `;
 
 const Box = styled.div`

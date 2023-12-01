@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import mymission from "../images/mymission.png";
 import checked from "../images/checked.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 const Wrapper = styled.div`
@@ -16,6 +16,11 @@ const Mission = styled.div`
   font-weight: bolder;
   height: 45px;
   width: 160px;
+  margin-top: 21px;
+`;
+
+const BigTitle = styled.div`
+  padding-top: 10px;
 `;
 
 const Box = styled.div`
@@ -24,9 +29,9 @@ const Box = styled.div`
 `;
 
 const MissionBox = styled.div`
-  width: 72vw;
+  width: 76vw;
   display: flex;
-  padding: 50px 30px;
+  padding: 40px 20px;
   border-bottom: 1px solid grey;
 `;
 
@@ -48,24 +53,24 @@ const MissionImg = styled.img`
 `;
 
 const ContentBox = styled.div`
-  margin-left: 100px;
+  margin-left: 70px;
+  width: 100%;
+  margin-right: 3vw;
 `;
 
 const HeadDiv = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
   margin-top: 0px;
 `;
 
 const TitleBox = styled.div`
   cursor: pointer;
-  width: 300px;
+  width: 500px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   display: block;
-  margin-right: 6vw;
 `;
 
 const Sub = styled.p`
@@ -77,21 +82,34 @@ const Sub = styled.p`
 const Title = styled.p`
   font-size: 1.5rem;
   font-weight: 900;
+  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: '100%';
 `;
 
 const MissionNum = styled.p`
   font-size: 1.2rem;
   font-weight: 900;
-  margin-right: 5vw;
+  margin-left: auto;
+  padding: 3px;
+  border: 2px solid #000000;
 `;
 
 const Num = styled.span`
+  // align-items: center;
+  // justify-content: center;
   padding-left: 20px;
   padding-right: 5px;
+  margin-top: 0px;
+  margin-bottom: 0px;
   font-size: 1.8rem;
   font-family: "Abril+Fatface";
   width: 10px;
-  text-align: center;
+  // text-align: center;
 `;
 
 const Btn = styled.button`
@@ -158,6 +176,8 @@ const Label = styled.label`
 `;
 
 const MyMission = () => {
+  const params = useParams();
+  const challengeId = params.id;
   const navigate = useNavigate();
   const [missionList, setMissionList] = useState([]);
   const [completedCount, setCompletedCount] = useState(0);
@@ -233,41 +253,28 @@ const MyMission = () => {
   }, []);
 
   const handleImageClick = (e) => {
-    navigate(`/songchallenge/completeddetail`, {
-      state: {
-        state: e.target.id,
-        start:
-          e.target.parentElement.parentElement.children[1].children[1]
-            .children[1].textContent,
-      },
-    });
+    const challengeId = e.target.id;
+    console.log(challengeId);
+    navigate(`/challenge/detail/${challengeId}`);
   };
 
   const handleClickBtn = (e) => {
-    console.log(
-      e.target.parentElement.children[0].children[0].textContent.substring(4)
-    );
-    navigate(`/songchallenge/ongoingdetail`, {
-      state: {
-        state: e.target.id,
-        start:
-          e.target.parentElement.children[0].children[0].textContent.substring(
-            4
-          ),
-      },
-    });
+    const challengeId = e.currentTarget.id;
+    console.log(challengeId);
+    navigate(`/challenge/detail/${challengeId}`);
   };
 
   return (
     <Wrapper>
       <Mission>
-        <p>참여한 미션</p>
+        <BigTitle>참여한 미션</BigTitle>
       </Mission>
       <Box>
         {missionList.map((missionList) => (
           <MissionBox key={missionList.challenge_id}>
             <ImgBox onClick={handleImageClick}>
               <MissionImg
+                id = {missionList.challenge_id}
                 src={`http://43.200.19.7:8080/api/v1/picture?pictureName=${missionList.picture}`}
               ></MissionImg>
             </ImgBox>
@@ -275,20 +282,17 @@ const MyMission = () => {
               <HeadDiv>
                 <TitleBox
                   onClick={handleClickBtn} id={missionList.challenge_id}>
-                  <Sub>{missionList.startDate} ~ {missionList.endDate}</Sub>
+                  <Sub>{missionList.period}</Sub>
                   <Title>{missionList.challenge_title}</Title>
                 </TitleBox>
                 <MissionNum>
-                    내가 성공한 미션
-                    <Num>
-                      {missionList.completedCount}
-                      /{missionList.missionCount}
-                    </Num>
-                    개
+                  내가 성공한 미션
+                  <Num>
+                    {missionList.completedCount}
+                    /{missionList.missionCount}
+                  </Num>
+                  개
                 </MissionNum>
-                <Btn onClick={handleClickBtn} id={missionList.challenge_id}>
-                  참여한 챌린지 바로가기
-                </Btn>
               </HeadDiv>
               {missionList.missions.map((mission) => (
                 <CheckDiv key={mission.mission_id} completed={mission.complete}>

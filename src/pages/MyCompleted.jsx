@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Mybar from "../components/Mybar";
 import styled from "styled-components";
-import { Outlet, Route, Routes, useNavigate } from "react-router-dom";
+import { Outlet, Route, Routes, useNavigate, useParams } from "react-router-dom";
 import MyMission from "./MyMission";
 import MyReview from "./MyReview";
 import MyInfo from "./MyInfo";
@@ -196,6 +196,8 @@ const Num = styled.p`
 `;
 
 const MyCompleted = () => {
+  const params = useParams();
+  const challengeId = params.id;
   const navigate = useNavigate();
   const [Username, setUsername] = useState([]);
   const [Recruit, setRecruit] = useState([]);
@@ -290,19 +292,11 @@ const MyCompleted = () => {
   };
 
   const handleClickBtn = (e) => {
-    console.log(
-      e.target.parentElement.children[0].children[0].textContent.substring(4)
-    );
-    navigate(`/challenge/detail`, {
-      state: {
-        state: e.target.id,
-        start:
-          e.target.parentElement.children[0].children[0].textContent.substring(
-            4
-          ),
-      },
-    });
+    const challengeId = e.currentTarget.id;
+    console.log(challengeId);
+    navigate(`/challenge/detail/${challengeId}`);
   };
+
   return (
     <Wrapper>
       <MyBox>

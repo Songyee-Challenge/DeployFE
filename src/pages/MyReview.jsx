@@ -14,13 +14,14 @@ const BigTitle = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 7px;
 `;
 
 const Review = styled.div`
   font-size: 1.4rem;
   border-bottom: 6px solid black;
   font-weight: bolder;
-  height: 45px;
+  height: 35px;
   width: 160px;
 `;
 
@@ -37,6 +38,7 @@ const ReviewBox = styled.div`
   width: 75vw;
   display: flex;
   margin-bottom: 50px;
+  margin-top: -4px;
 `;
 
 const Container = styled.div`
