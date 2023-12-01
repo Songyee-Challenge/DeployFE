@@ -18,6 +18,7 @@ const Wrapper = styled.div`
   margin-left: 3vw;
   padding-top: 10px;
   display: flex;
+  margin-bottom: 100px;
 `;
 
 const MyBox = styled.div`
@@ -69,6 +70,7 @@ const ForestUser = styled.p`
   font-family: "Dongle-regular", sans-serif;
   margin-left: 20px;
   margin-top: 2.8rem;
+  white-space: nowrap;
 `;
 
 const ForestSpan = styled.span`
@@ -117,6 +119,9 @@ const ChallengeBox = styled.div`
 const Title = styled.h2`
   font-size: 20px;
   font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 `;
 
 const TitleDiv = styled.div`
@@ -311,7 +316,7 @@ const MyChallenge = () => {
     console.log(
       e.target.parentElement.children[0].children[0].textContent.substring(4)
     );
-    navigate(`/songchallenge/ongoingdetail`, {
+    navigate(`/challenge/detail`, {
       state: {
         state: e.target.id,
         start:
@@ -356,7 +361,7 @@ const MyChallenge = () => {
                   </Num>
                   <More
                     onClick={() => {
-                      navigate("/my/recruit");
+                      navigate("/my/challenge/recruit");
                     }}
                   >
                     MORE &gt;
@@ -420,7 +425,7 @@ const MyChallenge = () => {
                   </Num>
                   <More
                     onClick={() => {
-                      navigate("/my/ongoing");
+                      navigate("/my/challenge/ongoing");
                     }}
                   >
                     MORE &gt;
@@ -484,7 +489,7 @@ const MyChallenge = () => {
                   </Num>
                   <More
                     onClick={() => {
-                      navigate("/my/completed");
+                      navigate("/my/challenge/completed");
                     }}
                   >
                     MORE &gt;
@@ -548,9 +553,9 @@ const MyChallenge = () => {
           <Route path="mission" element={<MyMission />} />
           <Route path="review" element={<MyReview />} />
           <Route path="info" element={<MyInfo />} />
-          <Route path="recruit" element={<MyRecruit />} />
-          <Route path="ongoing" element={<MyOngoing />} />
-          <Route path="completed" element={<MyCompleted />} />
+          <Route path="challenge/recruit" element={<MyRecruit />} />
+          <Route path="challenge/ongoing" element={<MyOngoing />} />
+          <Route path="challenge/completed" element={<MyCompleted />} />
         </Routes>
       </MyBox>
     </Wrapper>

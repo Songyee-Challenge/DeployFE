@@ -14,7 +14,7 @@ const CreatePage = () => {
     const [inputcount, setInputCount] = useState(0);
 
     const today = new Date();
-    const [startDate, setStartDate] = useState(new Date(today.setDate(today.getDate() + 2)));
+    const [startDate, setStartDate] = useState(new Date(today.setDate(today.getDate() + 1)));
     const [endDate, setEndDate] = useState(new Date(today));
     const [missions, setMissions] = useState([]);
     const [mtxt, setMtxt] = useState("");
@@ -156,7 +156,7 @@ const CreatePage = () => {
             })
             .then(response => {
                 alert('챌린지 개설 완료!');
-                navigate('/songchallenge');
+                navigate('/challenge/recruiting');
                 console.log(response);
             })
             .catch(error => {

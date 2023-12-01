@@ -12,7 +12,6 @@ const ProgressBarWrapper = styled.div`
   height: 10px; /* 프로그레스 바의 높이 */
   border-radius: 10px; /* 모서리가 둥근 직사각형 모양 설정 */
   background-color: #ccc; /* 기본 회색 배경색 */
-  position: relative;
   margin-left:12px;
 `;
 

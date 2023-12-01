@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
+import Button from '../components/Button';
 import SearchBar from '../components/SearchBar';
 
 const RecruitBox = styled.div`
@@ -99,7 +100,7 @@ const Title = styled.div`
 `;
 
 const ChallengeNumber = styled.div`
-  margin-left: 210px;
+  margin-left: 230px;
   margin-top: 10px;
   font-size: 1.1rem;
   position: fixed;
@@ -107,7 +108,7 @@ const ChallengeNumber = styled.div`
 
 const Line = styled.div`
   margin-left: 10px;
-  width: 280px;
+  width: 295px;
   border-bottom: 3px solid #000;
   position: fixed;
 `
@@ -119,7 +120,9 @@ const Body = styled.div`
   overflow-y: auto;
 `;
 
-const ImminentPage = () => {
+const CategoryPage = () => {
+  const params = useParams();
+  const challengeId = params.id;
     const navigate = useNavigate();
     const [recruit, setRecruit] = useState([]);
     const [total, setTotal] = useState("0");
@@ -128,13 +131,13 @@ const ImminentPage = () => {
     let ACCESS_TOKEN = localStorage.getItem("accessToken");
 
     const handleImageClick = (e) => {
-        console.log(e.target.parentElement.parentElement.children[1].children[1].children[1].textContent);
-        navigate(`/songchallenge/recruitdetail`, { state: {state: e.target.id, 
-            start: e.target.parentElement.parentElement.children[1].children[1].children[1].textContent}});
+      const challengeId = e.target.id;
+      console.log(challengeId);
+      navigate(`/challenge/detail/${challengeId}`);
     };
 
     const getRecruit = () => {
-        axios.get(`http://43.200.19.7:8080/api/v1/main/imminent/all`,  {
+        axios.get(`http://43.200.19.7:8080/api/v1/main/category?category=자유스터디`,  {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': ` Bearer ${ACCESS_TOKEN}`
@@ -154,7 +157,7 @@ const ImminentPage = () => {
     return (
         <RecruitBox>
             <TitleBox>
-                <Title>마감 임박 챌린지</Title>
+                <Title>자유스터디 챌린지</Title>
                 <ChallengeNumber>
                     (총 {total}개)
                 </ChallengeNumber>
@@ -171,20 +174,18 @@ const ImminentPage = () => {
                     <RecruitInfo>
                         <RecruitTitle>{challenge.challenge_title}</RecruitTitle>
                         <RecruitDetails>
-                            <span>기간</span>&nbsp;&nbsp;
-                            <span style={{color:"#42AF53"}}>{challenge.startDate.substring(0, 4)}.{challenge.startDate.substring(4, 6)}.{challenge.startDate.substring(6, 8)}</span>
+                            <span>기간</span>
+                            <span style={{fontWeight:'bold'}}>{challenge.startDate.substring(0, 4)}.{challenge.startDate.substring(4, 6)}.{challenge.startDate.substring(6, 8)}
                             &nbsp;~&nbsp;
-                            <span>{challenge.endDate.substring(0, 4)}.{challenge.endDate.substring(4, 6)}.{challenge.endDate.substring(6, 8)}</span>
-                        </RecruitDetails>
+                            {challenge.endDate.substring(0, 4)}.{challenge.endDate.substring(4, 6)}.{challenge.endDate.substring(6, 8)}</span></RecruitDetails>
                         <RecruitExplain>{challenge.detail}</RecruitExplain>
                     </RecruitInfo>
                     </div>
                 ))}
                 </RecruitList>
             </Body>
-        
         </RecruitBox>
     );
 };
 
-export default ImminentPage;
+export default CategoryPage;
