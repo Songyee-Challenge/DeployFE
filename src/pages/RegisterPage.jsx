@@ -303,7 +303,7 @@ const RegisterPage = () => {
                     labelwidth="100%"
                     name="username"
                     type="text"
-                    placeholder=''
+                    placeholder='실명을 입력해 주세요.'
                     value={username}
                     onChange={onChangeUsername}/>
                 <FlexBox style={{justifyContent:"space-between"}}>
